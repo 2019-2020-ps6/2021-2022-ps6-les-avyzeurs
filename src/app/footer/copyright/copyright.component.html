@@ -6,12 +6,12 @@
       </p>
     </div>
     <div class="half">
-      <a class="pq-edul" href="https://univ-cotedazur.eu/" target="_blank">
-        <img alt="UCA" src="assets/images/uca.svg">
-      </a>
-      <a class="pq-edul" href="https://polytech.univ-cotedazur.fr/" target="_blank">
-        <img alt="Polytech" src="assets/images/polytech_uca.svg">
-      </a>
+      <p *ngFor="let value of imagesKeys()">
+        <a class="pq-edul" href="{{ imagesValue(value) }}" target="_blank">
+          <img alt="{{ value }}" src="assets/images/{{ value.toLowerCase() }}.svg">
+        </a>
+
+      </p>
     </div>
   </div>
 </section>

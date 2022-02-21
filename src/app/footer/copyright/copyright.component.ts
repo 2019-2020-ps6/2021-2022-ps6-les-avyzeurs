@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ImagesEnum} from "./images_enum";
 
 @Component({
   selector: 'footer-copyright',
@@ -10,4 +11,13 @@ export class CopyrightComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public imagesKeys(): string[] {
+    return Object.keys(ImagesEnum);
+  }
+
+  public imagesValue(value: string): string {
+    // @ts-ignore
+    return ImagesEnum[value as keyof ImagesEnum]
+  }
 }
+
