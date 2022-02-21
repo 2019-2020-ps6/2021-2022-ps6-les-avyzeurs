@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap')
+
+
+$dark: #1E1E23
+$light: #ecf1f1
+$main: #334490
+
+$montserrat: 'Montserrat', sans-serif
+$raleway: 'Raleway', sans-serif
+$redhatdisplay: 'Red Hat Display', sans-serif
+
+$large: 1200px
+$medium: 992px
+$small: 767px
+
+$breakpoints: ('small': (max-width: 991px), 'medium': (max-width: 1199px), 'large': (min-width: $large)) !default
+
+@mixin backgrounder($light-theme: true, $percent: 0%)
+  @if $light-theme
+    background-color: darken($light, $percent)
+  @else
+    background-color: lighten($dark, $percent)
+
+@mixin colorer($light-theme: true)
+  @if $light-theme
+    color: $dark
+  @else
+    color: $light
+
+@mixin respond-to($breakpoint)
+  @if map-has-key($breakpoints, $breakpoint)
+    @media #{inspect(map-get($breakpoints, $breakpoint))}
+      @content
+  @else
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Available breakpoints are: #{map-keys($breakpoints)}."
+
+body
+  margin: 0
+
+.container
+  width: 100%
+  margin: 0 auto
+  display: flex
+  flex: 12
+  @include respond-to('large')
+    max-width: $large
+    padding: 0 $large/20
+  @include respond-to('medium')
+    max-width: $medium
+    padding: 0 $medium/25
+  @include respond-to('small')
+    max-width: $small
+    padding: 0 $small/30
+
+a
+  text-decoration: none
+
+.full
+  flex: 12
+
+.half
+  flex: 6
+
+.third
+  flex: 4
+
+.quarter
+  flex: 3
+
+@for $i from 1 through 12
+  .col-#{$i}
+    flex: #{i}
+

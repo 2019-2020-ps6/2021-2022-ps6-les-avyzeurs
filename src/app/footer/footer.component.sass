@@ -1,0 +1,85 @@
+@import "../../assets/global"
+
+footer
+  font-family: $redhatdisplay
+  @include backgrounder($light-theme: true, $percent: 10%)
+  @include colorer($light-theme: true)
+
+  body.dark &
+    @include backgrounder($light-theme: false, $percent: 10%)
+    @include colorer($light-theme: false)
+
+  .top
+    .pq-logo
+      margin: 5rem 0
+      display: inline-block
+
+    .third
+      padding: 1rem
+
+      &:first-child
+        text-align: center
+        align-items: center
+        display: flex
+        justify-content: center
+
+      &:nth-child(2), &:nth-child(3)
+        h1
+          @include backgrounder($light-theme: false, $percent: 0%)
+
+          body.dark &
+            @include backgrounder($light-theme: true, $percent: 0%)
+          text-transform: uppercase
+          font-weight: bold
+          font-size: 1.25rem
+          letter-spacing: 0.1*1.25rem
+          margin-bottom: 2rem
+          border-radius: 0.3rem
+
+          span
+            @include backgrounder($light-theme: true, $percent: 10%)
+            @include colorer($light-theme: true)
+
+            body.dark &
+              @include backgrounder($light-theme: false, $percent: 10%)
+              @include colorer($light-theme: false)
+            padding: 1rem 1rem 1rem 0
+
+      &:nth-child(3)
+        ul
+          margin-bottom: 2rem
+          list-style: none
+          padding: 0
+
+          li
+            a
+              font-size: 1rem
+              text-transform: uppercase
+              font-weight: bold
+              letter-spacing: 0.15*1.25rem
+              @include colorer($light-theme: true)
+
+              body.dark &
+                @include colorer($light-theme: false)
+
+              &:before
+                content: " "
+                width: 0.66rem
+                height: 0.66rem
+                display: inline-block
+                border-style: solid
+                border-color: $main
+                border-width: 0.2rem 0.2rem 0 0
+                transform: rotate(45deg)
+                margin: 0.15rem
+                transition: all ease 0.25s
+
+              span
+                padding-left: 1rem
+
+              &:hover
+                &:before
+                  transform: rotate(45deg) translate(0.33rem, -0.33rem)
+
+
+
