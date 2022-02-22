@@ -1,11 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {appRoutingModule} from './app.routing';
+
+import {AppComponent} from './app.component';
 import {FooterComponent} from "./footer/footer.component";
-import { HeaderComponent } from './header/header.component';
-import { LogoComponent } from './micro/logo/logo.component';
-import { CopyrightComponent } from './footer/copyright/copyright.component';
+import {HeaderComponent} from './header/header.component';
+import {LogoComponent} from './micro/logo/logo.component';
+import {CopyrightComponent} from './footer/copyright/copyright.component';
+import {HomeComponent} from './home/home.component';
+import {HomeCreateComponent} from './home/create/home-create.component';
+import {HomeProfilesComponent} from './home/profiles/home-profiles.component';
+import {HomeProfilesProfileComponent} from "./home/profiles/profile/home-profiles-profile.component";
 
 @NgModule({
   declarations: [
@@ -13,12 +19,18 @@ import { CopyrightComponent } from './footer/copyright/copyright.component';
     FooterComponent,
     HeaderComponent,
     LogoComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    HomeComponent,
+    HomeProfilesProfileComponent,
+    HomeCreateComponent,
+    HomeProfilesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    appRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
