@@ -2,7 +2,7 @@ import * as Joi from "joi"
 
 /* eslint-disable no-param-reassign */
 const fs = require('fs')
-const logger = require('../utils/logger.js')
+const logger = require('.//logger.ts')
 const ValidationError = require('./errors/validation-error.js')
 const NotFoundError = require('./errors/not-found-error.js')
 
