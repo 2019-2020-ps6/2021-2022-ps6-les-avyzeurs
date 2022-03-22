@@ -4,5 +4,5 @@ import {Component} from '@angular/core';
   selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'polyquizz-ps6';
+  title = 'PolyQuizz - Les Avyzeurs';
 }
