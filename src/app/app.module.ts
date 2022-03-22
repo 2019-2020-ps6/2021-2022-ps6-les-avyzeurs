@@ -7,28 +7,14 @@ import {AppComponent} from './app.component';
 import {FooterComponent} from "./footer/footer.component";
 import {HeaderComponent} from './header/header.component';
 import {LogoComponent} from './micro/logo/logo.component';
-import {CopyrightComponent} from './footer/copyright/copyright.component';
-import {HomeComponent} from './home/home.component';
-import {HomeCreateComponent} from './home/create/home-create.component';
-import {HomeProfilesComponent} from './home/profiles/home-profiles.component';
-import {HomeProfilesProfileComponent} from "./home/profiles/profile/home-profiles-profile.component";
+import {IndexComponent} from './index/index.component';
+import { AdminComponent } from './admin/admin.component';
+import { QuizzesComponent } from './admin/quizzes/quizzes.component';
+import { CreateComponent } from './admin/quizzes/create/create.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    LogoComponent,
-    CopyrightComponent,
-    HomeComponent,
-    HomeProfilesProfileComponent,
-    HomeCreateComponent,
-    HomeProfilesComponent
-  ],
-  imports: [
-    BrowserModule,
-    appRoutingModule
-  ],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent, IndexComponent, AdminComponent, QuizzesComponent, CreateComponent],
+  imports: [BrowserModule, appRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })

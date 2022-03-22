@@ -7,29 +7,24 @@
   <section class="top">
     <div class="container">
       <div class="row">
-        <div class="third col-md-4 col-sm-12">
+        <div class="logo col-md-6 col-sm-12">
           <app-micro-logo></app-micro-logo>
         </div>
-        <div class="third col-md-4 col-sm-12">
-          <h1><span>Informations</span></h1>
-          <p>
-            Projet PS6 PolyQuiz<br>
-            Campus SophiaTech,
-            930 route des Colles, BP 145,
-            06903 Sophia Antipolis
-          </p>
-        </div>
-        <div class="third col-md-4 col-sm-12">
-          <h1><span>Pages importantes</span></h1>
+        <div class="links col-md-6 col-sm-12">
           <ul>
             <li><a href="#"><span>Accueil</span></a></li>
             <li><a href="#"><span>Listes des quizz</span></a></li>
-            <li><a href="#"><span>à propos</span></a></li>
-            <li><a href="#"><span>Conditions d'utilisations</span></a></li>
+            <li class="separator"></li>
+            <li><a href="#"><span>Espace administrateur</span></a></li>
+            <li><a href="#"><span>À propos</span></a></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
-  <footer-copyright></footer-copyright>
+  <section class="copyright">
+    <div class="container">
+      © PolyQuizz {{currentDate | date:'yyyy'}} - Créé par les Avyzeurs
+    </div>
+  </section>
 </footer>
