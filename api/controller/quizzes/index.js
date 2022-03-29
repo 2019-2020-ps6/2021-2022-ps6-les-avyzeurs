@@ -2,7 +2,7 @@
 const { Router } = require('express')
 
 // @ts-ignore
-const { Quiz } = require('../../models/')
+const { Quiz } = require('../../models')
 
 // @ts-ignore
 const router = new Router()
@@ -27,7 +27,9 @@ router.get('/', (req, res) => {
 // @ts-ignore
 router.post('/', (req, res) => {
   try {
+    console.log(req.body);
     const quiz = Quiz.create({ ...req.body })
+    console.log(quiz);
     res.status(201).json(quiz)
   } catch (err) {
     // @ts-ignore

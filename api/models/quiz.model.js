@@ -1,4 +1,4 @@
-import * as Joi from "joi";
+const Joi = require('joi')
 
 const BaseModel = require('../utils/base-model.js')
 

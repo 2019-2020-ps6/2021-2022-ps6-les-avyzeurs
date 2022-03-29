@@ -2,9 +2,8 @@ const cors = require('cors')
 const morgan = require('morgan')
 const express = require('express')
 const bodyParser = require('body-parser')
-const api = require('./controller/index.ts')
+const api = require('./controller')
 
-// @ts-ignore
 module.exports = (cb) => {
   const app = express()
   app.disable('x-powered-by')
@@ -12,7 +11,6 @@ module.exports = (cb) => {
   app.use(bodyParser.json({}))
   app.use(morgan('[:date[iso]] :method :url :status :response-time ms - :res[content-length]'))
   app.use('/api', api)
-  // @ts-ignore
   app.use('*', (req, res) => res.status(404).end())
   const server = app.listen(process.env["PORT"] || 9428, () => cb && cb(server))
 }

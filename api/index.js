@@ -1,5 +1,5 @@
-const buildServer = require('./build-server.ts')
-const logger = require('./utils/logger.ts')
+const buildServer = require('./build-server.js')
+const logger = require('./utils/logger.js')
 
 // @ts-ignore
 buildServer((server) => logger.info(`Server is listening on port ${server.address().port}`))

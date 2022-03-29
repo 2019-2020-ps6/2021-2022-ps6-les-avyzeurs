@@ -1,5 +1,5 @@
 // @ts-ignore
-const Quiz = require('./quiz.model.ts')
+const Quiz = require('./quiz.model.js')
 
 module.exports = {
   Quiz

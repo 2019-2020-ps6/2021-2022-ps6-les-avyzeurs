@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "api start": "node api/index.ts",
-    "api dev": "./node_modules/.bin/nodemon api/index.ts",
+    "api start": "node api/index.js",
+    "api dev": "./node_modules/.bin/nodemon api/index.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -20,7 +20,7 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
-    "joi": "^17.6.0",
+    "joi": "^14.3.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
