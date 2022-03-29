@@ -2,7 +2,7 @@
 const { Router } = require('express')
 
 // @ts-ignore
-const { Quiz } = require('../../models/')
+const {Quiz} = require('../../models/quiz.model.ts')
 
 // @ts-ignore
 const router = new Router()

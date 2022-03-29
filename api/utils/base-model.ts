@@ -1,20 +1,22 @@
-import * as Joi from "joi"
-
 /* eslint-disable no-param-reassign */
 const fs = require('fs')
-const logger = require('.//logger.ts')
+// @ts-ignore
+const Joi = require('joi')
+// @ts-ignore
+const logger = require('../utils/logger.js')
 const ValidationError = require('./errors/validation-error.js')
 const NotFoundError = require('./errors/not-found-error.js')
 
-module.exports = class BaseModel {
-  private readonly schema: Joi.ObjectSchema;
+class BaseModel {
+  private readonly schema: any;
   private items: any[];
   private readonly name: any;
-  private readonly filePath: string;
+  private readonly filePath: any;
+
   constructor(name: any, schema: any) {
     if (!name) throw new Error('You must provide a name in constructor of BaseModel')
     if (!schema) throw new Error('You must provide a schema in constructor of BaseModel')
-    this.schema = Joi.object().keys({ ...schema, id: Joi.number().required() })
+    this.schema = Joi.object().keys({...schema, id: Joi.number().required()})
     this.items = []
     this.name = name
     this.filePath = `${__dirname}/../../database/${this.name.toLowerCase()}.data.json`
@@ -42,7 +44,8 @@ module.exports = class BaseModel {
     return this.items
   }
 
-  getById(id: string | number) {
+  // @ts-ignore
+  getById(id) {
     if (typeof id === 'string') id = parseInt(id, 10)
     const item = this.items.find((i) => i.id === id)
     if (!item) throw new NotFoundError(`Cannot get ${this.name} id=${id} : not found`)
@@ -50,29 +53,29 @@ module.exports = class BaseModel {
   }
 
   create(obj = {}) {
-    const item = { ...obj, id: Date.now() }
-    // @ts-ignore
-    const { error } = Joi.validate(item, this.schema)
+    const item = {...obj, id: Date.now()}
+    const {error} = Joi.validate(item, this.schema)
     if (error) throw new ValidationError(`Create Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error)
     this.items.push(item)
     this.save()
     return item
   }
 
-  update(id: string | number, obj: any) {
+  // @ts-ignore
+  update(id, obj) {
     if (typeof id === 'string') id = parseInt(id, 10)
     const prevObjIndex = this.items.findIndex((item) => item.id === id)
     if (prevObjIndex === -1) throw new NotFoundError(`Cannot update ${this.name} id=${id} : not found`)
-    const updatedItem = { ...this.items[prevObjIndex], ...obj }
-    // @ts-ignore
-    const { error } = Joi.validate(updatedItem, this.schema)
+    const updatedItem = {...this.items[prevObjIndex], ...obj}
+    const {error} = Joi.validate(updatedItem, this.schema)
     if (error) throw new ValidationError(`Update Error : Object ${JSON.stringify(obj)} does not match schema of model ${this.name}`, error)
     this.items[prevObjIndex] = updatedItem
     this.save()
     return updatedItem
   }
 
-  delete(id: string | number) {
+  // @ts-ignore
+  delete(id) {
     if (typeof id === 'string') id = parseInt(id, 10)
     const objIndex = this.items.findIndex((item) => item.id === id)
     if (objIndex === -1) throw new NotFoundError(`Cannot delete ${this.name} id=${id} : not found`)
@@ -80,3 +83,5 @@ module.exports = class BaseModel {
     this.save()
   }
 }
+
+export {BaseModel};
