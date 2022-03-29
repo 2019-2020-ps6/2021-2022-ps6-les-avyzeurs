@@ -1,6 +1,6 @@
 // @ts-ignore
 const {Router} = require('express')
-const QuizzesRouter = require('./quizzes/index.ts')
+const QuizzesRouter = require('./quizzes/')
 
 // @ts-ignore
 const router = new Router()
