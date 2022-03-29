@@ -8,13 +8,14 @@ import {FooterComponent} from "./footer/footer.component";
 import {HeaderComponent} from './header/header.component';
 import {LogoComponent} from './micro/logo/logo.component';
 import {IndexComponent} from './index/index.component';
-import {AdminComponent} from './admin/admin.component';
 import {AdminQuizzesComponent} from './admin/quizzes/admin-quizzes.component';
 import {AdminQuizzesCreateComponent} from './admin/quizzes/create/admin-quizzes-create.component';
+import {AdminIndexComponent} from "./admin/index/admin-index.component";
+import {AdminModule} from "./admin/admin.module";
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent, IndexComponent, AdminComponent, AdminQuizzesComponent, AdminQuizzesCreateComponent],
-  imports: [BrowserModule, appRoutingModule],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent, AdminIndexComponent, AdminQuizzesComponent, AdminQuizzesCreateComponent],
+  imports: [BrowserModule, appRoutingModule, AdminModule],
   providers: [],
   bootstrap: [AppComponent]
 })

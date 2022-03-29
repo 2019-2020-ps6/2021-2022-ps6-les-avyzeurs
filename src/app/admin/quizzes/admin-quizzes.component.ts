@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-quizzes',
+  selector: 'app-admin-quizzes',
   templateUrl: './admin-quizzes.component.html',
-  styleUrls: ['./admin-quizzes.component.css']
+  styleUrls: ['./admin-quizzes.component.sass']
 })
 export class AdminQuizzesComponent implements OnInit {
 
