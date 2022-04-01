@@ -2,11 +2,15 @@ import {Quiz} from "../models/quiz.model";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, of} from 'rxjs';
 import {QUIZ_LIST} from '../mocks/quiz-list.mock';
+import {Injectable} from "@angular/core";
 
-export class QuizService {
+@Injectable({
+  providedIn: 'root'
+})
+export class QuizzesService {
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
   private quizzes: Quiz[] = QUIZ_LIST
-  private api = 'http://localhost:9428/api';
+  private api = 'http://localhost:9428/api/';
 
   constructor(private http: HttpClient) {
     this.getQuizzes();
@@ -27,7 +31,7 @@ export class QuizService {
   deleteQuiz(quiz: Quiz) {
     this.quizzes.splice(this.quizzes.indexOf(quiz), 1);
     this.quizzes$.next(this.quizzes);
-    this.http.delete(this.api + "/quizzes/" + quiz.id);
+    this.http.delete(this.api + "quizzes/" + quiz.id);
   }
 
   getQuizzes() {

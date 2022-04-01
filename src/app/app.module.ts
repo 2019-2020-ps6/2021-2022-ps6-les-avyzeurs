@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 
 import {appRoutingModule} from './app.routing';
 
@@ -13,7 +14,7 @@ import {QuizzesModule} from "./quizzes/quizzes.module";
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent],
-  imports: [BrowserModule, appRoutingModule, AdminModule, QuizzesModule],
+  imports: [BrowserModule, appRoutingModule, AdminModule, QuizzesModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap')
 
 $text: #1E1E23
-$background-1: #ecf1f1
-$background-2: #d1dddd
+$background-1: #f7fafa
+$background-2: darken($background-1, 5)
 
 $light: #ecf1f1
 $main: #334490
@@ -119,6 +119,7 @@ input[type=text], input[type=password]
   transition: all ease 0.1s
   font-family: $redhatdisplay
   cursor: pointer
+  user-select: none
 
   &.red
     background: $red

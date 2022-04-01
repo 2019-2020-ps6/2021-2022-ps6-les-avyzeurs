@@ -1,7 +1,7 @@
 export interface Quiz {
   id: number;
   name: string;
-  image: string;
+  image?: string;
   questions: Question[];
 }
 
@@ -15,7 +15,7 @@ export interface Question {
 
 export interface Answer {
   id: number;
-  type: number;
+  type?: number;
   label: string;
   correctAnswer: boolean;
 }
