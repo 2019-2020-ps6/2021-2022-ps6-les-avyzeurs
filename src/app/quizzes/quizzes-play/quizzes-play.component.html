@@ -1,0 +1,53 @@
+<div class="container my-4">
+  <div *ngIf="quiz && quiz != undefined;then quizExist else quizNotExist"></div>
+  <ng-template #quizExist>
+    <div *ngIf="quiz.questions.length>0;then quizHasQuestion else quizHasntQuestion"></div>
+    <ng-template #quizHasQuestion>
+      <div class="quiz-play">
+        <h1>{{ quiz.name }}</h1>
+        <div class="quiz-image" style="background-image: url('{{ quiz.image }}')"></div>
+        <hr>
+        <div *ngFor="let question of quiz.questions" class="col-md-3">
+          {{ question.question }}
+        </div>
+        <hr>
+        <a class="btn-polyquizz sp" href="">Question suivante</a>
+        <div class="actions">
+          <a (click)="openModal('quitQuizPopup')" class="btn-polyquizz small sp" href="javascript:void(0)">Retour à la
+            liste des quiz</a>
+          <a class="btn-polyquizz small sp" href="javascript:void(0)">Vérifier mes paramètres</a>
+        </div>
+      </div>
+
+
+      <div [ngClass]="quitQuizPopup ? 'opened' : 'closed'" class="modal" id="quitQuizPopup">
+        <div class="popup small">
+          <div class="close-box"><span (click)="closeModal('quitQuizPopup')" class="close"><i class="fas fa-times"></i></span>
+          </div>
+          <h3>Êtes vous sûr de vouloir quitter le quizz ?</h3>
+          <div class="row ">
+            <div class="col-md-6">
+              <a class="btn-polyquizz red block" routerLink="/quizzes">Oui</a>
+            </div>
+            <div class="col-md-6">
+              <a (click)="closeModal('quitQuizPopup')" class="btn-polyquizz block" href="javascript:void(0)">Non</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #quizHasntQuestion>
+      <div class="quiz-error">
+        <h1>{{ quiz.name }}</h1>
+        <div class="quiz-image" style="background-image: url('{{ quiz.image }}')"></div>
+        <div class="error">Erreur</div>
+        <p>Le quiz n'est pas disponible, merci de contacter un administrateur.</p>
+        <a class="btn-polyquizz" routerLink="/quizzes">Retour à la liste des quiz</a>
+      </div>
+    </ng-template>
+  </ng-template>
+  <ng-template #quizNotExist>
+    Erreur, quiz introuvable
+  </ng-template>
+</div>
+
