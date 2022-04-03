@@ -1,7 +1,4 @@
-@import "grid/grid"
-@import "visibility/visibility"
-
-@import "_variables"
+@import "variables"
 
 @mixin respond-to($breakpoint)
   @if map-has-key($breakpoints, $breakpoint)
@@ -13,13 +10,55 @@
 body
   margin: 0
 
-.my-4
-  margin-top: 4rem !important
-  margin-bottom: 4rem !important
+*
+  box-sizing: border-box
 
-.my-2
-  margin-top: 2rem !important
-  margin-bottom: 2rem !important
+// MARGIN
+@for $i from 0 through 4
+  .m-#{$i}
+    margin: #{$i}rem #{$i}rem #{$i}rem #{$i}rem !important
+  .mt-#{$i}
+    margin-top: #{$i}rem !important
+  .mb-#{$i}
+    margin-bottom: #{$i}rem !important
+  .mr-#{$i}
+    margin-right: #{$i}rem !important
+  .ml-#{$i}
+    margin-left: #{$i}rem !important
+  .my-#{$i}
+    margin-top: #{$i}rem !important
+    margin-bottom: #{$i}rem !important
+  .mx-#{$i}
+    margin-right: #{$i}rem !important
+    margin-left: #{$i}rem !important
+
+// PADDING
+@for $i from 0 through 4
+  .p-#{$i}
+    padding: #{$i}rem #{$i}rem #{$i}rem #{$i}rem !important
+  .pt-#{$i}
+    padding-top: #{$i}rem !important
+  .pb-#{$i}
+    padding-bottom: #{$i}rem !important
+  .pr-#{$i}
+    padding-right: #{$i}rem !important
+  .pl-#{$i}
+    padding-left: #{$i}rem !important
+  .py-#{$i}
+    padding-top: #{$i}rem !important
+    padding-bottom: #{$i}rem !important
+  .px-#{$i}
+    padding-right: #{$i}rem !important
+    padding-left: #{$i}rem !important
+
+
+@import "flex"
+
+@import "inputs"
+
+@import "buttons"
+
+@import "card"
 
 .center
   text-align: center
@@ -51,9 +90,6 @@ h3
   margin-top: 0
 
 
-.p-0
-  padding: 0!important
-
 h2.question
   display: flex
   justify-content: center
@@ -68,72 +104,7 @@ hr
   border: 0
   border-radius: 1px
 
-.input-group
-  input
-    margin-bottom: .5rem
 
-input[type=text], input[type=password]
-  width: 100%
-  padding: 12px
-  font-size: 16px
-  border-radius: 0.5rem
-  background: transparent
-  border: 2px solid transparentize($text, 0.5)
-  transition: all ease 0.1s
-  color: $text
-  font-family: $redhatdisplay
-
-  &:hover, &:focus
-    border: 2px solid $text
-
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked
-  width: 1rem
-  height: 1rem
-  background: rgba(0, 0, 0, 0.25)
-  border: 0
-
-.flex
-  display: flex
-
-  &.jc
-    justify-content: center
-
-.btn-polyquizz
-  padding: 14px
-  font-size: 20px
-  background: $main
-  color: $background-1
-  border-radius: 12px
-  font-weight: normal
-  outline: none
-  border: 3px solid $main
-  transition: all ease 0.1s
-  font-family: $redhatdisplay
-  cursor: pointer
-  user-select: none
-  display: inline-block
-
-  &.block
-    display: block
-    text-align: center
-
-  &.red
-    background: $red
-    border-color: $red
-
-  &:hover
-    background: transparent
-    color: $text
-
-  &.lp
-    padding: 7px
-
-  &.small
-    font-size: 14px
-
-  &.sp
-    padding: 8px 24px
 
 .answer
   background: rgba(0, 0, 0, 0.1)
@@ -145,19 +116,20 @@ input[type=text], input[type=password]
   margin: 0 auto
   @include respond-to('large')
     max-width: $large
-    padding: 0 $large/20
+    padding: 0 $large / 20
   @include respond-to('medium')
     max-width: $medium
-    padding: 0 $medium/25
+    padding: 0 $medium / 25
   @include respond-to('small')
     max-width: $small
-    padding: 0 $small/30
+    padding: 0 $small / 30
 
 a
   text-decoration: none
 
 .modal
   display: none
+
   &.opened
     display: block
   overflow: hidden
@@ -169,6 +141,7 @@ a
   top: 0
   left: 0
   transition: ass ease 0.1s
+
   .popup
     background: $background-1
     box-shadow: $shadow
@@ -185,14 +158,18 @@ a
       max-width: $medium
     @include respond-to('small')
       max-width: $small
+
     &.small
       max-width: $small
+
       .close-box
         display: flex
         width: 100%
         flex-direction: row-reverse
+
         .close
           font-size: 24px
+
       .actions
         display: flex
 

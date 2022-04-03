@@ -11,9 +11,10 @@ import {LogoComponent} from './micro/logo/logo.component';
 import {IndexComponent} from './index/index.component';
 import {AdminModule} from "./admin/admin.module";
 import {QuizzesModule} from "./quizzes/quizzes.module";
+import { ProfileElementComponent } from './index/profile-element/profile-element.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent, ProfileElementComponent],
   imports: [BrowserModule, appRoutingModule, AdminModule, QuizzesModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

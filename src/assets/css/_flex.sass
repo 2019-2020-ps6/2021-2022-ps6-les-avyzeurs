@@ -1,0 +1,28 @@
+
+.flex
+  display: flex
+  width: 100%
+  flex-direction: row
+  flex-wrap: wrap
+  flex: 0 1 auto
+  margin: 0 auto
+
+  &.v-center
+    align-items: center
+
+  &.h-center
+    justify-content: center
+
+  &.h-spacing
+    justify-content: space-between
+
+@function percent($i)
+  @return 100% / 12 * $i
+
+@for $i from 0 through 12
+  .col-#{$i}
+    flex-basis: percent($i)
+    max-width: percent($i)
+    padding: 0 0.5rem
+    box-sizing: border-box
+    flex-grow: 1
