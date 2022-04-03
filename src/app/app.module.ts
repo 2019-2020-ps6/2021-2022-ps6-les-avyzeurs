@@ -12,10 +12,11 @@ import {IndexComponent} from './index/index.component';
 import {AdminModule} from "./admin/admin.module";
 import {QuizzesModule} from "./quizzes/quizzes.module";
 import { ProfileElementComponent } from './index/profile-element/profile-element.component';
+import {ProfileModule} from "./profile/profile.module";
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent, ProfileElementComponent],
-  imports: [BrowserModule, appRoutingModule, AdminModule, QuizzesModule, HttpClientModule],
+  imports: [BrowserModule, appRoutingModule, AdminModule, QuizzesModule, ProfileModule],
   providers: [],
   bootstrap: [AppComponent]
 })

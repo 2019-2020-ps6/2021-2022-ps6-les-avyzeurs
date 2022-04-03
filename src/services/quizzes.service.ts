@@ -30,9 +30,6 @@ export class QuizzesService {
   }
 
 
-
-
-
   addQuiz(quiz: Quiz) {
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);

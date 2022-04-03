@@ -5,7 +5,7 @@ import {QuizzesPlayComponent} from "./quizzes-play/quizzes-play.component";
 
 const routes: Routes = [
   {path: 'quizzes', pathMatch: 'full', component: QuizzesListComponent},
-  {path: 'quizzes/:id', pathMatch: 'full', component: QuizzesPlayComponent},
+  {path: 'quiz/:id', pathMatch: 'full', component: QuizzesPlayComponent},
 ];
 
 @NgModule({
