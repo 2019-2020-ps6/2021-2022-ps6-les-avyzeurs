@@ -1,0 +1,25 @@
+<footer>
+  <section class="top">
+    <div class="container">
+      <div class="flex">
+        <div class="col-6 flex h-center v-center">
+            <app-components-logo></app-components-logo>
+        </div>
+        <div class="links col-6">
+          <ul>
+            <li><a routerLink="/"><span>Accueil</span></a></li>
+            <li><a routerLink="/quizzes"><span>Listes des quizz</span></a></li>
+            <li class="separator"></li>
+            <li><a routerLink="/admin"><span>Espace administrateur</span></a></li>
+            <li><a href="#"><span>À propos</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="copyright">
+    <div class="container">
+      © PolyQuizz {{currentDate | date:'yyyy'}} - Créé par les Avyzeurs
+    </div>
+  </section>
+</footer>

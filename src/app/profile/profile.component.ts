@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Profile} from "../../models/profile.model";
 import {ActivatedRoute} from "@angular/router";
-import {QuizzesService} from "../../services/quizzes.service";
 import {ProfileService} from "../../services/profile.service";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.sass']
+  selector: 'app-profile', templateUrl: './profile.component.html'
 })
+
 export class ProfileComponent implements OnInit {
 
   public profile: Profile;
@@ -25,3 +23,4 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+

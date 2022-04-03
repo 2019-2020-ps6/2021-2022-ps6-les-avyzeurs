@@ -1,22 +1,18 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
 
 import {appRoutingModule} from './app.routing';
 
 import {AppComponent} from './app.component';
-import {FooterComponent} from "./footer/footer.component";
-import {HeaderComponent} from './header/header.component';
-import {LogoComponent} from './micro/logo/logo.component';
+import {ComponentsModule} from "./components/components.module";
 import {IndexComponent} from './index/index.component';
-import {AdminModule} from "./admin/admin.module";
-import {QuizzesModule} from "./quizzes/quizzes.module";
-import { ProfileElementComponent } from './index/profile-element/profile-element.component';
+import {HttpClientModule} from "@angular/common/http";
+import {QuizModule} from "./quiz/quiz.module";
 import {ProfileModule} from "./profile/profile.module";
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, LogoComponent, IndexComponent, ProfileElementComponent],
-  imports: [BrowserModule, appRoutingModule, AdminModule, QuizzesModule, ProfileModule],
+  declarations: [AppComponent, IndexComponent],
+  imports: [BrowserModule, appRoutingModule, ComponentsModule, HttpClientModule, QuizModule, ProfileModule],
   providers: [],
   bootstrap: [AppComponent]
 })

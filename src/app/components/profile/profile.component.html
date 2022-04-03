@@ -1,0 +1,10 @@
+<a class="card profile" routerLink="profile/{{ profile.id }}">
+  <div *ngIf="hasProp(profile, 'image'); then profileImage else defaultImage"></div>
+  <ng-template #profileImage>
+    <div class="card-image" style="background-image: url({{ profile.image }})"></div>
+  </ng-template>
+  <ng-template #defaultImage>
+    <div class="card-image" style="background-image: url('assets/images/default.png')"></div>
+  </ng-template>
+  <div class="card-text">{{ profile.firstname }} {{ profile.name }}</div>
+</a>

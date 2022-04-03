@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
-import { ProfileHeaderComponent } from './profile-header/profile-header.component';
-import {ProfileComponent} from "./profile.component";
+import { ProfileComponent } from './profile.component';
+import { HeaderComponent } from './header/header.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    ProfileHeaderComponent
+    HeaderComponent
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    HttpClientModule
   ]
 })
 export class ProfileModule { }

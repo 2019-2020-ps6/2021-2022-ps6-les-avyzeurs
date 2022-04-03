@@ -1,0 +1,13 @@
+<h2>Question {{ currentQuestion }}/{{ numberOfQuestion }}</h2>
+
+<img src="{{ question.image }}" alt="">
+
+<h3>{{ question.question }} <small>{{ question.id }}</small></h3>
+
+<div class="flex">
+  <div *ngFor="let answer of question.answers">
+    <div class="answer">
+      {{ answer.label }}
+    </div>
+  </div>
+</div>
