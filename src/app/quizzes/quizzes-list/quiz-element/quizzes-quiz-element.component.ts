@@ -2,16 +2,14 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Quiz} from "../../../../models/quiz.model";
 
 @Component({
-  selector: 'app-quizzes-quiz-element',
-  templateUrl: './quizzes-quiz-element.component.html',
-  styleUrls: ['./quizzes-quiz-element.component.sass']
+  selector: 'app-quizzes-quiz-element', templateUrl: './quizzes-quiz-element.component.html'
 })
 export class QuizzesQuizElementComponent implements OnInit {
 
-  @Input()
-  quiz!: Quiz;
+  @Input() quiz: Quiz;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

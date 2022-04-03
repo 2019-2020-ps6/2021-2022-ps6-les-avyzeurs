@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile-element',
-  templateUrl: './profile-element.component.html',
-  styleUrls: ['./profile-element.component.sass']
+  templateUrl: './profile-element.component.html'
 })
 export class ProfileElementComponent implements OnInit {
 

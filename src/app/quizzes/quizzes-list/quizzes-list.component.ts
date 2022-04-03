@@ -5,8 +5,7 @@ import {QuizzesService} from "../../../services/quizzes.service";
 
 @Component({
   selector: 'app-quizzes-list',
-  templateUrl: './quizzes-list.component.html',
-  styleUrls: ['./quizzes-list.component.sass']
+  templateUrl: './quizzes-list.component.html'
 })
 export class QuizzesListComponent implements OnInit {
 
