@@ -1,15 +1,32 @@
 <div class="container my-4">
-  <div class="flex h-center">
+  <div class="flex">
     <div class="col-12 center">
       <h1>Sélectionnez votre profil:</h1>
-    </div>
-    <div class="col-7">
-      <input type="text" name="name" placeholder="Cherchez votre nom ici">
+      <div class="flex h-center">
+        <div class="col-8">
+          <input type="text" name="name" placeholder="Cherchez votre nom ici">
+        </div>
+      </div>
     </div>
     <div class="col-12 my-2">
       <div class="flex h-spacing">
         <div class="col-3">
           <app-profile-element></app-profile-element>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 center">
+      <hr>
+      <h1 class="mt-2">Vous ne trouvez pas votre profil?</h1>
+      <div class="flex h-center">
+        <div class="col-3">
+          <input type="text" name="name" placeholder="Nom">
+        </div>
+        <div class="col-3">
+          <input type="text" name="name" placeholder="Prénom">
+        </div>
+        <div class="col-2">
+          <button class="btn-polyquizz input block">Créer</button>
         </div>
       </div>
     </div>
