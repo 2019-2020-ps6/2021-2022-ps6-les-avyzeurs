@@ -1,0 +1,4 @@
+GET  http://localhost:9428/api/quizzes/1648542010431
+Accept: application/json
+
+###

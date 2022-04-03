@@ -1,10 +1,11 @@
-const Joi = require('joi');
-const BaseModel = require('../utils/base-model.ts')
+const Joi = require('joi')
+
+const BaseModel = require('../utils/base-model.js')
 
 module.exports = new BaseModel('Profile', {
   firstname: Joi.string().required(),
   name: Joi.string().required(),
   image: Joi.string(),
-  dob: Joi.string(),
-  lastConnection: Joi.date().default(Date.now())
+  dob: Joi.date(),
+  lastConnection: Joi.date()
 })

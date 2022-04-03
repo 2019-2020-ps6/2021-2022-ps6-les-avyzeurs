@@ -15,11 +15,9 @@ export class QuizzesPlayComponent implements OnInit {
   userParamPopup: boolean = false;
 
   constructor(private route: ActivatedRoute, private quizService: QuizzesService) {
-    // @ts-ignore
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
     });
-
   }
 
   ngOnInit(): void {

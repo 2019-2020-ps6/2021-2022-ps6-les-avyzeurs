@@ -1,5 +1,6 @@
-const Joi = require('joi');
-const BaseModel = require('../utils/base-model.ts')
+const Joi = require('joi')
+
+const BaseModel = require('../utils/base-model.js')
 
 module.exports = new BaseModel('Parameter', {
   type: Joi.number().required().default(0),

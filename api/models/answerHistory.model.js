@@ -1,5 +1,6 @@
-const Joi = require('joi');
-const BaseModel = require('../utils/base-model')
+const Joi = require('joi')
+
+const BaseModel = require('../utils/base-model.js')
 
 module.exports = new BaseModel('AnswerHistory', {
   chosenAnswer: Joi.boolean().required().default(false),

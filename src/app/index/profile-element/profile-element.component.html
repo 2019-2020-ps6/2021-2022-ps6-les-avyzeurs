@@ -1,4 +1,10 @@
-<a routerLink="profile" class="card profile">
-  <div class="card-image" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a4/Ren%C3%A9_Malleville_Photo.jpg)"></div>
-  <div class="card-text">René Latope</div>
+<a routerLink="profile/{{ profile.id }}" class="card profile">
+  <div *ngIf="hasProp(profile, 'image'); then profileImage else defaultImage"></div>
+  <ng-template #profileImage>
+    <div class="card-image" style="background-image: url({{ profile.image }})"></div>
+  </ng-template>
+  <ng-template #defaultImage>
+    <div class="card-image" style="background-image: url('assets/images/default.png')"></div>
+  </ng-template>
+  <div class="card-text">{{ profile.firstname }} {{ profile.name }}</div>
 </a>

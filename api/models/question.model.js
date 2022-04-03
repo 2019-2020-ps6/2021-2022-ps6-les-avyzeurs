@@ -1,6 +1,5 @@
-// @ts-ignore
-const Joi = require('joi');
-// @ts-ignore
+const Joi = require('joi')
+
 const BaseModel = require('../utils/base-model.js')
 
 module.exports = new BaseModel('Question', {

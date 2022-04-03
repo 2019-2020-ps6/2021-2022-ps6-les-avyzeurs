@@ -1,9 +1,13 @@
 const Quiz = require('./quiz.model.js')
 const Question = require('./question.model.js')
 const Answer = require('./answer.model.js')
+const Profile = require('./profile.model.js')
+const Parameter = require('./parameter.model.js')
 
 module.exports = {
   Quiz,
   Question,
-  Answer
+  Answer,
+  Profile,
+  Parameter
 }

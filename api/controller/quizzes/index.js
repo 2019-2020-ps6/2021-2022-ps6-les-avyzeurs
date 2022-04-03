@@ -1,10 +1,10 @@
-const { Router } = require('express')
+const {Router} = require('express')
 
-const { Quiz } = require('../../models')
+const {Quiz} = require('../../models')
 
 const questionRouter = require('./questions/index')
 
-const { filterQuestion } = require("./questions/manager");
+const {filterQuestion} = require("./questions/manager");
 
 const router = new Router()
 
@@ -35,7 +35,7 @@ router.get('/:quizId', (req, res) => {
 router.delete('/:quizId', (req, res) => {
   try {
     Quiz.delete(req.params.quizId)
-    res.status(200).json({ msg: 'ok' })
+    res.status(200).json({msg: 'ok'})
   } catch (err) {
     res.status(500).json(err)
   }
@@ -44,7 +44,7 @@ router.delete('/:quizId', (req, res) => {
 router.post('/', (req, res) => {
   try {
     console.log(req.body);
-    const quiz = Quiz.create({ ...req.body })
+    const quiz = Quiz.create({...req.body})
     console.log(quiz);
     res.status(201).json(quiz)
   } catch (err) {
