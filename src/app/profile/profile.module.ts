@@ -8,14 +8,17 @@ import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
-  declarations: [
-    ProfileComponent,
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    HttpClientModule
-  ]
+    declarations: [
+        ProfileComponent,
+        HeaderComponent
+    ],
+    exports: [
+        HeaderComponent
+    ],
+    imports: [
+        CommonModule,
+        ProfileRoutingModule,
+        HttpClientModule
+    ]
 })
 export class ProfileModule { }

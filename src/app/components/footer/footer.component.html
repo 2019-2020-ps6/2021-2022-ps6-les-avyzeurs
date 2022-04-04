@@ -3,13 +3,15 @@
     <div class="container">
       <div class="flex">
         <div class="col-6 flex h-center v-center">
-            <app-components-logo></app-components-logo>
+          <app-components-logo></app-components-logo>
         </div>
         <div class="links col-6">
           <ul>
             <li><a routerLink="/"><span>Accueil</span></a></li>
-            <li><a routerLink="/quizzes"><span>Listes des quizz</span></a></li>
-            <li class="separator"></li>
+            <li *ngIf="isLogged"><a routerLink="/quizzes"><span>Listes des quizz</span></a></li>
+            <li *ngIf="isLogged"><a routerLink="/profile/{{ profileId }}"><span>Profil</span></a></li>
+            <li *ngIf="!isLogged" class="separator"></li>
+            <li *ngIf="!isLogged" class="separator"></li>
             <li><a routerLink="/admin"><span>Espace administrateur</span></a></li>
             <li><a href="#"><span>À propos</span></a></li>
           </ul>

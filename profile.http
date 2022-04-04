@@ -1,4 +1,15 @@
-GET  http://localhost:9428/api/quizzes/1648542010431
-Accept: application/json
+POST http://localhost:9428/api/quizzesHistory
+Content-Type: application/json
+
+{
+  "quizId": "1648542010431",
+  "profileId": "1649004020542",
+  "answers": {
+    "20": true,
+    "21": true
+  }
+}
 
 ###
+GET http://localhost:9428/api/quizzesHistory/1649112345266
+Content-Type: application/json

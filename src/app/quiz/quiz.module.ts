@@ -8,6 +8,7 @@ import {QuizzesComponent} from "./quizzes/quizzes.component";
 import {QuestionComponent} from "./quiz/question/question.component";
 import {ComponentsModule} from "../components/components.module";
 import { ResultComponent } from './quiz/result/result.component';
+import {ProfileModule} from "../profile/profile.module";
 
 
 @NgModule({
@@ -17,11 +18,12 @@ import { ResultComponent } from './quiz/result/result.component';
     QuestionComponent,
     ResultComponent
   ],
-  imports: [
-    CommonModule,
-    QuizRoutingModule,
-    HttpClientModule,
-    ComponentsModule
-  ]
+    imports: [
+        CommonModule,
+        QuizRoutingModule,
+        HttpClientModule,
+        ComponentsModule,
+        ProfileModule
+    ]
 })
 export class QuizModule { }

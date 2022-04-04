@@ -14,6 +14,16 @@ export class ProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute, private profileService: ProfileService) {
     this.profileService.profileSelected$.subscribe((profile) => {
       this.profile = profile;
+      let notConnected = false;
+      if(!localStorage.getItem('currentSessionID'))
+        notConnected = true;
+      if(localStorage.getItem('currentSessionID') != String(profile.id))
+        notConnected = false;
+      localStorage.setItem('currentSessionID', String(profile.id))
+      if(localStorage.getItem('currentSessionID'))
+        console.log("Already connected")
+      if(notConnected)
+        location.reload();
     });
   }
 

@@ -18,7 +18,12 @@
       </div>
     </div>
     <div class="col-12">
-      <a routerLink="/">Cliquez ici si vous voulez changer de profil</a>
+      <div class="flex v-center h-spacing">
+        <a (click)="logout()" routerLink="/">Cliquez ici si vous voulez changer de profil</a>
+        <div *ngIf="onQuizzes">
+          <a routerLink="/profile/{{ profile.id }}" class="btn-polyquizz small">Cliquez ici pour revenir à votre profil</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
