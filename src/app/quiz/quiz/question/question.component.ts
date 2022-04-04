@@ -1,12 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Question} from "../../../../models/quiz.model";
-import {ActivatedRoute} from "@angular/router";
-import {QuestionService} from "../../../../services/question.service";
 
 @Component({
-  selector: 'app-quiz-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.sass']
+  selector: 'app-quiz-question', templateUrl: './question.component.html', styleUrls: ['./question.component.sass']
 })
 export class QuestionComponent implements OnInit {
 
@@ -15,18 +11,27 @@ export class QuestionComponent implements OnInit {
 
   @Input() public question: Question;
 
+  public answers = [];
 
-  constructor(private route: ActivatedRoute, private questionService: QuestionService) {
-    /*
-    this.questionService.questionSelected$.subscribe((quiz) => {
-      this.question = quiz;
-    });
-    */
-
+  constructor() {
   }
 
   ngOnInit(): void {
-    const id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'));
+    this.shuffleArray(this.question.answers)
+  }
+
+  shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
+
+  selectAnswer(id: number) {
+    this.answers[id] = !this.answers[id];
+    console.log(this.answers)
   }
 
 }

@@ -6,13 +6,23 @@
       <h1>{{ quiz.name }}</h1>
       <div class="quiz-image" style="background-image: url('{{ quiz.image }}')"></div>
       <hr>
-      <div *ngFor="let question of quiz.questions; let index = index;" class="col-md-12">
-        {{ question.id }}
-        <app-quiz-question [currentQuestion]="index + 1" [numberOfQuestion]="quiz.questions.length"
-                           [question]="question"></app-quiz-question>
+      <div class="col-md-12">
+        <app-quiz-question
+          [currentQuestion]="currentQuestion + 1"
+          [numberOfQuestion]="quiz.questions.length"
+          [question]="quiz.questions[currentQuestion]">
+        </app-quiz-question>
       </div>
       <hr>
-      <a class="btn-polyquizz sp" href="">Question suivante</a>
+
+      <div *ngIf="currentQuestion + 1 < quiz.questions.length;then nextQuestion else endQuiz"></div>
+      <ng-template #nextQuestion>
+        <a (click)="currentQuestion = currentQuestion + 1" class="btn-polyquizz sp">Question suivante</a>
+      </ng-template>
+      <ng-template #endQuiz>
+        <a (click)="saveQuizResult()" routerLink="/quiz-result/1" class="btn-polyquizz sp">Afficher les résultats du quiz</a>
+      </ng-template>
+
       <div class="actions">
         <a (click)="openModal('quitQuizPopup')" class="btn-polyquizz small sp" href="javascript:void(0)">Retour à la
           liste des quiz</a>

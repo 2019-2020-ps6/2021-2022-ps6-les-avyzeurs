@@ -5,6 +5,7 @@ const {Quiz} = require('../../models')
 const questionRouter = require('./questions/index')
 
 const {filterQuestion} = require("./questions/manager");
+const {filterAnswer} = require("./questions/answers/manager");
 
 const router = new Router()
 
@@ -26,6 +27,9 @@ router.get('/:quizId', (req, res) => {
   try {
     const quiz = Quiz.getById(req.params.quizId)
     quiz.questions = filterQuestion(req.params.quizId)
+    quiz.questions.forEach((question) => {
+      question.answers = filterAnswer(question.id)
+    })
     res.status(200).json(quiz)
   } catch (err) {
     res.status(500).json(err)

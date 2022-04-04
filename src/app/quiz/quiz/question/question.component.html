@@ -1,13 +1,19 @@
-<h2>Question {{ currentQuestion }}/{{ numberOfQuestion }}</h2>
+<div class="flex h-center my-2 question">
+  <div class="col-12 center"><h2>Question {{ currentQuestion }}/{{ numberOfQuestion }}</h2></div>
+  <div class="col-8">
+    <div class="image" style="background-image: url({{ question.image }})"></div>
+  </div>
+  <div class="col-12 center">
+    <h3>{{ question.question }} <small>ID#{{ question.id }}</small></h3>
+  </div>
 
-<img src="{{ question.image }}" alt="">
-
-<h3>{{ question.question }} <small>{{ question.id }}</small></h3>
-
-<div class="flex">
-  <div *ngFor="let answer of question.answers">
-    <div class="answer">
-      {{ answer.label }}
+  <div class="col-12">
+    <div class="flex h-center">
+      <div *ngFor="let answer of question.answers">
+        <span class="answer m-1" (click)='selectAnswer(answer.id)' [ngClass]="{'selected': answers[answer.id]}">
+          {{ answer.label }}
+        </span>
+      </div>
     </div>
   </div>
 </div>

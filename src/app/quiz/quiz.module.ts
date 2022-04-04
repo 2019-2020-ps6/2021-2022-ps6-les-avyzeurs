@@ -7,13 +7,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {QuizzesComponent} from "./quizzes/quizzes.component";
 import {QuestionComponent} from "./quiz/question/question.component";
 import {ComponentsModule} from "../components/components.module";
+import { ResultComponent } from './quiz/result/result.component';
 
 
 @NgModule({
   declarations: [
     QuizzesComponent,
     QuizComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultComponent
   ],
   imports: [
     CommonModule,

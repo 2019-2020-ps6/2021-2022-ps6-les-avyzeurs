@@ -55,4 +55,8 @@ export class QuizComponent implements OnInit {
     }
   }
 
+  saveQuizResult(): void {
+
+  }
+
 }
