@@ -1,6 +1,6 @@
 const {Router} = require('express')
 
-const {Profile, Quiz} = require('../../models')
+const {Profile, Quiz, Parameter} = require('../../models')
 const router = new Router()
 const parametersRouter = require("./parameter")
 
@@ -26,9 +26,12 @@ router.get('/:profileId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const quiz = Profile.create({...req.body, "lastConnection": Date.now()})
-
-    res.status(201).json(quiz)
+    const profile = Profile.create({...req.body, "lastConnection": Date.now()})
+    Parameter.create({type : "PARKINSON_MOVEMENT_DETECTOR", value : 0, isEnabled : true, profileId : parseInt(profile.id, 10)})
+    Parameter.create({type : "PARKINSON_BOX_SPACING", value : 16, isEnabled : true, profileId : parseInt(profile.id, 10)})
+    Parameter.create({type : "PARKINSON_BOX_SIZING", value : 16, isEnabled : true, profileId : parseInt(profile.id, 10)})
+    Parameter.create({type : "VISION_SCALE", value : 16, isEnabled : true, profileId : parseInt(profile.id, 10)})
+    res.status(201).json(profile)
   } catch (err) {
     console.log(err)
     if (err.name === 'ValidationError') {
