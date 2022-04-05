@@ -1,0 +1,25 @@
+<div class="flex panel h-center">
+  <div class="col-12 center">
+    <h1>Connexion</h1>
+    <div class="col-12">
+      <div class="flex">
+        <div *ngIf="containsError" class="col-12 mb-2">
+          <div class="alert error">
+            {{errorMsg}}
+          </div>
+        </div>
+        <form class="col-12" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+          <div class="col-12 mb-1">
+            <input formControlName="username" placeholder="Nom d'utilisateur" type="text">
+          </div>
+          <div class="col-12 mb-1">
+            <input formControlName="password" placeholder="Mot de passe" type="text">
+          </div>
+          <div class="col-12">
+            <button class="btn-polyquizz input block" type="submit">Connection</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
