@@ -35,4 +35,8 @@ export class QuestionComponent implements OnInit {
     console.log(this.answers)
   }
 
+  hasProp(o, name) {
+    return typeof o[name] !== 'undefined';
+  }
+
 }

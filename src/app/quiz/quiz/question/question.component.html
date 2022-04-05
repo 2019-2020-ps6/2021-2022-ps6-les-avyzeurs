@@ -1,6 +1,6 @@
 <div class="flex h-center my-2 question">
   <div class="col-12 center"><h2>Question {{ currentQuestion }}/{{ numberOfQuestion }}</h2></div>
-  <div class="col-8">
+  <div class="col-8" *ngIf="hasProp(question, 'image')">
     <div class="image" style="background-image: url({{ question.image }})"></div>
   </div>
   <div class="col-12 center">
