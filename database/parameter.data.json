@@ -1,0 +1,30 @@
+[
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1649151840999,
+    "id": 1649151841014
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1649151840999,
+    "id": 1649151841026
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1649151840999,
+    "id": 1649151841038
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1649151840999,
+    "id": 1649151841052
+  }
+]
