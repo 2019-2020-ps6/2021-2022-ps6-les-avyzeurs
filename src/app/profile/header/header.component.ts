@@ -4,9 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ProfileService} from "../../../services/profile.service";
 
 @Component({
-  selector: 'app-profile-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.sass']
+  selector: 'app-profile-header', templateUrl: './header.component.html', styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
   @Input() onQuizzes: boolean;
@@ -20,12 +18,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = Number.parseInt(localStorage.getItem('currentSessionID'));
-    this.profileService.setSelectedProfile(id);
+    if (localStorage.getItem('currentSessionID')) {
+      const id = Number.parseInt(localStorage.getItem('currentSessionID'));
+      this.profileService.setSelectedProfile(id);
+    }
   }
 
   hasProp(o, name) {
-    return o.hasOwnProperty(name);
+    return typeof o[name] !== 'undefined';
   }
 
   logout(): void {

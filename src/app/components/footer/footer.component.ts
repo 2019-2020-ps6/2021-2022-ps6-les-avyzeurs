@@ -10,7 +10,6 @@ export class FooterComponent implements OnInit {
   profileId: number = 0;
 
   constructor(private router: Router) {
-    console.log("oui")
   }
 
   ngOnInit(): void {

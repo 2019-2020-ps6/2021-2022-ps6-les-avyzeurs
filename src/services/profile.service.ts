@@ -27,7 +27,6 @@ export class ProfileService {
   setSelectedProfile(profileId: number): void {
     this.http.get<Profile>(profileApi + "/" + profileId).subscribe((profile) => {
       this.profileSelected$.next(profile);
-      console.log(profile)
     });
   }
 

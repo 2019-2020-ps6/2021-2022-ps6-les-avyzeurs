@@ -28,7 +28,7 @@ router.get('/:quizHistoryId', (req, res) => {
   }
 })
 
-router.get('/fromProfile/:profileId', (req, res) => {
+router.get('/profile/:profileId', (req, res) => {
   try {
     const quizHistory = QuizHistory.where("profileId", req.params.profileId, true)
     quizHistory.forEach((q) => {
@@ -39,7 +39,7 @@ router.get('/fromProfile/:profileId', (req, res) => {
         if (Answer.getById(a.answerId).correctAnswer) score++
       })
       q.score = score;
-      q.nbQuestions = Question.where("quizId", q.quizId,true).length
+      q.nbQuestions = Question.where("quizId", q.quizId, true).length
     })
     res.status(200).json(quizHistory)
   } catch (err) {
@@ -59,9 +59,12 @@ router.post('/', (req, res) => {
       "quizId": req.body.quizId, "profileId": req.body.profileId,
     }
     const quizHistory = QuizHistory.create(quizHistoryValue)
-    Object.keys(req.body.answers).forEach((key) => AnswerHistory.create({
-      "chosenAnswer": req.body.answers[key], "quizHistoryId": quizHistory.id, "answerId": key
-    }))
+    req.body.answers.forEach((value) => {
+      console.log(value)
+      return AnswerHistory.create({
+        "quizHistoryId": quizHistory.id, "answerId": value
+      });
+    })
     res.status(201).json(quizHistory)
   } catch (err) {
     // @ts-ignore

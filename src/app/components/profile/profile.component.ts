@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   }
 
   hasProp(o, name) {
-    return o.hasOwnProperty(name);
+    return typeof o[name] !== 'undefined';
   }
 
 }

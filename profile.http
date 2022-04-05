@@ -3,11 +3,11 @@ Content-Type: application/json
 
 {
   "quizId": "1648542010431",
-  "profileId": "1649004020542",
-  "answers": {
-    "20": true,
-    "21": true
-  }
+  "profileId": "1649004020546",
+  "answers": [
+    20,
+    21
+  ]
 }
 
 ###

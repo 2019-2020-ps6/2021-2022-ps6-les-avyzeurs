@@ -20,8 +20,6 @@ export class ProfileComponent implements OnInit {
       if(localStorage.getItem('currentSessionID') != String(profile.id))
         notConnected = false;
       localStorage.setItem('currentSessionID', String(profile.id))
-      if(localStorage.getItem('currentSessionID'))
-        console.log("Already connected")
       if(notConnected)
         location.reload();
     });
