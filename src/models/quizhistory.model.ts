@@ -3,13 +3,12 @@ import {Answer} from "./quiz.model";
 export interface QuizHistory {
   id: number;
   quizId: number;
-  profileId?: number;
+  profileId: number;
   answers: AnswerHistory[];
 }
 
 export interface AnswerHistory {
   id: number;
-  chosenAnswer: boolean;
   quizHistoryId: number;
   answerId: number;
 }
@@ -17,7 +16,7 @@ export interface AnswerHistory {
 export interface QuizResult {
   id: number;
   quizId: number;
-  profileId?: number;
+  profileId: number;
   answers: QuestionResult[];
 }
 
@@ -27,4 +26,15 @@ export interface QuestionResult {
   image?: string;
   video?: string;
   answers: AnswerHistory[];
+}
+
+
+export interface QuizProfileResult {
+  id: number;
+  quizId: number;
+  profileId: number;
+  answers: AnswerHistory[];
+  name: string;
+  score: number;
+  nbQuestions: number;
 }

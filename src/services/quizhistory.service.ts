@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Subject} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {httpOptionsBase, quizzesApi, quizzesHistoryApi} from "../config";
-import {QuizHistory, QuizResult} from "../models/quizhistory.model";
+import {QuizHistory, QuizProfileResult, QuizResult} from "../models/quizhistory.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class QuizHistoryService {
   private quizzesHistory: QuizHistory[] = []
   public quizzesHistory$: BehaviorSubject<QuizHistory[]> = new BehaviorSubject(this.quizzesHistory);
 
-  private quizzesProfileHistory: QuizHistory[] = []
-  public quizzesProfileHistory$: BehaviorSubject<QuizHistory[]> = new BehaviorSubject(this.quizzesProfileHistory);
+  private quizzesProfileHistory: QuizProfileResult[] = []
+  public quizzesProfileHistory$: BehaviorSubject<QuizProfileResult[]> = new BehaviorSubject(this.quizzesProfileHistory);
 
   constructor(private http: HttpClient) {
     this.getQuizzesHistoryFromAPI();
@@ -27,7 +27,7 @@ export class QuizHistoryService {
   }
 
   getQuizzesFromProfile(profileId) {
-    this.http.get<QuizHistory[]>(quizzesHistoryApi + "/fromProfile/" + profileId).subscribe((quiz) => {
+    this.http.get<QuizProfileResult[]>(quizzesHistoryApi + "/profile/" + profileId).subscribe((quiz) => {
       this.quizzesProfileHistory = quiz;
       this.quizzesProfileHistory$.next(quiz);
     });

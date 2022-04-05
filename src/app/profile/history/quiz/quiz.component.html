@@ -1,0 +1,15 @@
+<a class="flex lite-panel v-center" routerLink="/quiz-result/{{quizProfileResult.id}}">
+  <div class="col-6">
+    Nom du quiz: {{quizProfileResult.name}}
+  </div>
+  <div class="col-3">
+    Date: {{ getDate(quizProfileResult.id) }}
+  </div>
+  <div class="col-1 center">
+    Score:<br>{{quizProfileResult.score}}/{{quizProfileResult.nbQuestions}}
+  </div>
+  <div class="col-2">
+    <a class="btn-polyquizz small block" routerLink="/quiz/{{quizProfileResult.quizId}}">Relancer</a>
+  </div>
+</a>
+

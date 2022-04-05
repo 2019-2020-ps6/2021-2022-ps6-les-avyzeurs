@@ -4,8 +4,8 @@ import {LogoComponent} from './logo/logo.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {RouterModule} from "@angular/router";
-import { ProfileComponent } from './profile/profile.component';
-import { QuizComponent } from './quiz/quiz.component';
+import {ProfileComponent} from './profile/profile.component';
+import {QuizComponent} from './quiz/quiz.component';
 
 
 @NgModule({

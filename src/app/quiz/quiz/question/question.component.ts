@@ -18,6 +18,7 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.shuffleArray(this.question.answers)
+    console.log(this.question.answers)
   }
 
   shuffleArray = array => {
