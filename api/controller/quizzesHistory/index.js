@@ -1,17 +1,26 @@
 const {Router} = require('express')
 
-const {Quiz, QuizHistory, AnswerHistory, Answer, Question} = require('../../models')
-const {filterQuestion} = require("../quizzes/questions/manager");
+const {QuizHistory, AnswerHistory, Answer, Question} = require('../../models')
 
 
 const router = new Router()
 
+router.get('/', (req, res) => {
+  try {
+    const quizHistory = QuizHistory.get()
+    quizHistory.forEach((q) => q.answers = AnswerHistory.where("quizHistoryId", q.id, true))
+    res.status(200).json(quizHistory)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 router.get('/:quizHistoryId', (req, res) => {
   try {
     const quizHistory = QuizHistory.getById(req.params.quizHistoryId)
-    quizHistory.questions = filterQuestion(quizHistory.quizId)
+    quizHistory.questions = Question.where("quizId", quizHistory.quizId, true)
     quizHistory.questions.forEach((question) => {
-      question.answers = filterAnswerHistory(req.params.quizHistoryId, question.id)
+      question.answers = filterAnswerHistoryForResult(req.params.quizHistoryId, question.id)
     })
     res.status(200).json(quizHistory)
   } catch (err) {
@@ -19,7 +28,16 @@ router.get('/:quizHistoryId', (req, res) => {
   }
 })
 
-function filterAnswerHistory(quizHistoryId, questionId) {
+router.get('/fromProfile/:profileId', (req, res) => {
+  try {
+    const quizHistory = QuizHistory.where("profileId", req.params.profileId, true)
+    res.status(200).json(quizHistory)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+function filterAnswerHistoryForResult(quizHistoryId, questionId) {
   return AnswerHistory.get().filter((a) => {
     return parseInt(a.quizHistoryId, 10) === parseInt(quizHistoryId, 10) && parseInt(Answer.getById(a.answerId).questionId, 10) === parseInt(questionId, 10);
   })

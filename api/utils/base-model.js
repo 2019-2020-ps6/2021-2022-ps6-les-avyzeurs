@@ -36,6 +36,10 @@ module.exports = class BaseModel {
     return this.items
   }
 
+  where(key, value, isId = false) {
+    return isId ? this.items.filter((t) => parseInt(t[key], 10) === parseInt(value, 10)) : this.items.filter((t) => t.get(key) === value);
+  }
+
   getById(id) {
     if (typeof id === 'string') id = parseInt(id, 10)
     const item = this.items.find((i) => i.id === id)
