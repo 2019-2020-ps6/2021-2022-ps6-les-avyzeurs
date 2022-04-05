@@ -1,7 +1,10 @@
 const {Router} = require('express')
 
-const {Profile} = require('../../models')
+const {Profile, Quiz} = require('../../models')
 const router = new Router()
+const parametersRouter = require("./parameter")
+
+router.use('/:profileId/parameters', parametersRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -33,6 +36,23 @@ router.post('/', (req, res) => {
     } else {
       res.status(500).json(err)
     }
+  }
+})
+
+router.delete('/:profileId' , (req,res) => {
+  try {
+    Profile.delete(req.params.profileId)
+    res.status(200).json({msg: 'ok'})
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+router.put('/:profileId', (req, res) => {
+  try {
+    res.status(200).json(Profile.update(req.params.profileId, req.body))
+  } catch (err) {
+    res.status(500).json(err)
   }
 })
 

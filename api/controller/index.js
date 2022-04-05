@@ -10,7 +10,7 @@ const router = new Router()
 // @ts-ignore
 router.get('/status', (req, res) => res.status(200).json('ok'))
 router.use('/quizzes', QuizzesRouter)
-router.use('/profile', ProfileRouter)
+router.use('/profiles', ProfileRouter)
 router.use('/quizzesHistory', QuizzesHistoryRouter)
 
 module.exports = router
