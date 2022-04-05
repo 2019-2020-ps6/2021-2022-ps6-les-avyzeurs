@@ -1,6 +1,6 @@
 const {Router} = require('express')
 
-const {QuizHistory, AnswerHistory, Answer, Question} = require('../../models')
+const {QuizHistory, AnswerHistory, Answer, Question, Quiz} = require('../../models')
 
 
 const router = new Router()
@@ -31,6 +31,16 @@ router.get('/:quizHistoryId', (req, res) => {
 router.get('/fromProfile/:profileId', (req, res) => {
   try {
     const quizHistory = QuizHistory.where("profileId", req.params.profileId, true)
+    quizHistory.forEach((q) => {
+      q.name = Quiz.getById(q.quizId).name
+      const answers = AnswerHistory.where("quizHistoryId", q.id, true)
+      let score = 0;
+      answers.forEach(a => {
+        if (Answer.getById(a.answerId).correctAnswer) score++
+      })
+      q.score = score;
+      q.nbQuestions = Question.where("quizId", q.quizId,true).length
+    })
     res.status(200).json(quizHistory)
   } catch (err) {
     res.status(500).json(err)
