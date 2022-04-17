@@ -8,7 +8,6 @@ const router = new Router()
 router.get('/', (req, res) => {
   try {
     const quizHistory = QuizHistory.get()
-    quizHistory.forEach((q) => q.answers = AnswerHistory.where("quizHistoryId", q.id, true))
     res.status(200).json(quizHistory)
   } catch (err) {
     res.status(500).json(err)
@@ -18,10 +17,12 @@ router.get('/', (req, res) => {
 router.get('/:quizHistoryId', (req, res) => {
   try {
     const quizHistory = QuizHistory.getById(req.params.quizHistoryId)
-    quizHistory.questions = Question.where("quizId", quizHistory.quizId, true)
-    quizHistory.questions.forEach((question) => {
-      question.answers = filterAnswerHistoryForResult(req.params.quizHistoryId, question.id)
-    })
+    quizHistory.name = Quiz.getById(quizHistory.quizId).name
+    quizHistory.image = Quiz.getById(quizHistory.quizId).image
+    //quizHistory.questions = Question.where("quizId", quizHistory.quizId, true)
+    //quizHistory.questions.forEach((question) => {
+    //  question.answers = filterAnswerHistoryForResult(req.params.quizHistoryId, question.id)
+    //})
     res.status(200).json(quizHistory)
   } catch (err) {
     res.status(500).json(err)

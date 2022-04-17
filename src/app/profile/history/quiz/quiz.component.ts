@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {QuizProfileResult} from "../../../../models/quizhistory.model";
+import {QuizProfileResult} from "../../../../models/quizresult.model";
 
 @Component({
   selector: 'app-profile-history-quiz', templateUrl: './quiz.component.html'

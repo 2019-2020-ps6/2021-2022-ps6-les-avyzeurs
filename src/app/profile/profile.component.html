@@ -1,5 +1,14 @@
 <app-profile-header></app-profile-header>
 
+<div class="flex">
+  <div class="col-12">
+    <h3 class="center">Réglages des différents paramètres</h3>
+  </div>
+  <div *ngFor="let parameter of profile.parameters" class="col-6 mb-2">
+    <app-profile-parameter [parameter]="parameter"></app-profile-parameter>
+  </div>
+</div>
+
 <div class="flex my-2">
   <div class="col-12 center">
     <a routerLink="/quizzes/" class="btn-polyquizz large uppercase">Accéder à la liste des quiz</a>

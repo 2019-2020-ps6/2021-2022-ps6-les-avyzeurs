@@ -19,5 +19,3 @@ export const adminCredentials = [
     "password": "admin"
   }
 ]
-
-

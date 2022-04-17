@@ -1,0 +1,31 @@
+<div class="center">
+  <div *ngIf="parameter.type == 'PARKINSON_MOVEMENT_DETECTOR' && parameter.isEnabled" class="flex h-center">
+    <h4>Détection de mouvement brusque <b>(suivi de parkinson)</b></h4>
+    <div *ngIf="parameter.value == 0;then activate else deactivate"></div>
+    <ng-template #activate>
+      <button class="btn-polyquizz font-size-16 col-8" (click)="parameter.value = 1">Cliquez pour activer</button>
+    </ng-template>
+    <ng-template #deactivate>
+      <button class="btn-polyquizz font-size-16 red col-8" (click)="parameter.value = 0">Cliquez pour désactiver</button>
+    </ng-template>
+  </div>
+
+  <div *ngIf="parameter.type == 'PARKINSON_BOX_SPACING' && parameter.isEnabled" class="flex h-center">
+    <h4>Augmentation de l’espacement entre chaque réponse</h4>
+    <button class="btn-polyquizz ud font-size-16 col-8"><i class="fa fa-angle-left" (click)="down()"></i>{{this.getBoxSpacingArray()[parameter.value]}}<i class="fa fa-angle-right" (click)="up()"></i></button>
+
+  </div>
+
+  <div *ngIf="parameter.type == 'PARKINSON_BOX_SIZING' && parameter.isEnabled" class="flex h-center">
+    <h4>Augmentation de la taille des zones de réponses</h4>
+    <button class="btn-polyquizz ud font-size-16 col-8"><i class="fa fa-angle-left" (click)="down()"></i>{{this.getBoxSizingArray()[parameter.value]}}<i class="fa fa-angle-right" (click)="up()"></i></button>
+  </div>
+
+  <div *ngIf="parameter.type == 'VISION_SCALE' && parameter.isEnabled"  class="flex h-center">
+    <h4>Augmentation de la taille du texte lors des quiz</h4>
+    <button class="btn-polyquizz ud font-size-{{parameter.value}} col-8"><i class="fa fa-angle-left" (click)="down()"></i>{{this.getVisionScaleArray()[parameter.value]}}<i class="fa fa-angle-right" (click)="up()"></i></button>
+  </div>
+</div>
+
+
+

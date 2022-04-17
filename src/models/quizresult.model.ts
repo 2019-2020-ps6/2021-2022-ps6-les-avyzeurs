@@ -1,12 +1,3 @@
-import {Answer} from "./quiz.model";
-
-export interface QuizHistory {
-  id: number;
-  quizId: number;
-  profileId: number;
-  answers: AnswerHistory[];
-}
-
 export interface AnswerHistory {
   id: number;
   quizHistoryId: number;
@@ -14,6 +5,15 @@ export interface AnswerHistory {
 }
 
 export interface QuizResult {
+  id: number;
+  quizId: number;
+  profileId: number;
+  name: string;
+  image: string;
+  //questions: QuestionResult[];
+}
+
+export interface QuizHistory {
   id: number;
   quizId: number;
   profileId: number;
@@ -27,7 +27,6 @@ export interface QuestionResult {
   video?: string;
   answers: AnswerHistory[];
 }
-
 
 export interface QuizProfileResult {
   id: number;

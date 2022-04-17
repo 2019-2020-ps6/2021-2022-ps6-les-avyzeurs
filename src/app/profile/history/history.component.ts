@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProfileService} from "../../../services/profile.service";
 import {Profile} from "../../../models/profile.model";
-import {QuizProfileResult} from "../../../models/quizhistory.model";
+import {QuizProfileResult} from "../../../models/quizresult.model";
 import {QuizHistoryService} from "../../../services/quizhistory.service";
 
 @Component({

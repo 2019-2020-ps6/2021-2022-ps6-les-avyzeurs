@@ -7,6 +7,7 @@ import {HeaderComponent} from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HistoryComponent} from './history/history.component';
 import {QuizComponent} from './history/quiz/quiz.component';
+import { ParameterComponent } from './parameter/parameter.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {QuizComponent} from './history/quiz/quiz.component';
         ProfileComponent,
         HeaderComponent,
         HistoryComponent,
-        QuizComponent
+        QuizComponent,
+        ParameterComponent
     ],
     exports: [
         HeaderComponent

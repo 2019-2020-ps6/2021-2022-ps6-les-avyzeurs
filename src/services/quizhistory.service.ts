@@ -1,9 +1,8 @@
-import {Quiz} from "../models/quiz.model";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Subject} from 'rxjs';
 import {Injectable} from "@angular/core";
-import {httpOptionsBase, quizzesApi, quizzesHistoryApi} from "../config";
-import {QuizHistory, QuizProfileResult, QuizResult} from "../models/quizhistory.model";
+import {httpOptionsBase, quizzesHistoryApi} from "../config";
+import {QuizProfileResult, QuizResult} from "../models/quizresult.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,8 @@ import {QuizHistory, QuizProfileResult, QuizResult} from "../models/quizhistory.
 export class QuizHistoryService {
 
   public quizHistorySelected$: Subject<QuizResult> = new Subject();
-  private quizzesHistory: QuizHistory[] = []
-  public quizzesHistory$: BehaviorSubject<QuizHistory[]> = new BehaviorSubject(this.quizzesHistory);
+  private quizzesHistory: QuizResult[] = []
+  public quizzesHistory$: BehaviorSubject<QuizResult[]> = new BehaviorSubject(this.quizzesHistory);
 
   private quizzesProfileHistory: QuizProfileResult[] = []
   public quizzesProfileHistory$: BehaviorSubject<QuizProfileResult[]> = new BehaviorSubject(this.quizzesProfileHistory);
@@ -34,13 +33,15 @@ export class QuizHistoryService {
   }
 
   getQuizzesHistoryFromAPI() {
-    this.http.get<QuizHistory[]>(quizzesHistoryApi).subscribe((quizHistoryList) => {
+    /**
+     this.http.get<QuizHistory[]>(quizzesHistoryApi).subscribe((quizHistoryList) => {
       this.quizzesHistory = quizHistoryList;
       this.quizzesHistory$.next(this.quizzesHistory);
     });
+     **/
   }
 
-  addQuiz(quiz: QuizHistory): void {
-    this.http.post<QuizHistory>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesHistoryFromAPI());
+  addQuiz(quiz: QuizResult): void {
+    this.http.post<QuizResult>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesHistoryFromAPI());
   }
 }

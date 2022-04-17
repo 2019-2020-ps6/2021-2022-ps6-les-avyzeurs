@@ -1,23 +1,2 @@
-POST http://localhost:9428/api/quizzesHistory
-Content-Type: application/json
-
-{
-  "quizId": "1648542010431",
-  "profileId": "1649004020546",
-  "answers": [
-    20,
-    21
-  ]
-}
-
-###
-GET http://localhost:9428/api/quizzesHistory/1649112345266
-Content-Type: application/json
-
-###
-GET http://localhost:9428/api/quizzesHistory
-Content-Type: application/json
-
-###
-GET http://localhost:9428/api/quizzesHistory/profile/1649004020542
+GET http://localhost:9428/api/quizzesHistory/1649158527448
 Content-Type: application/json

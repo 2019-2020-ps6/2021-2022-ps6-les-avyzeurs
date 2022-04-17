@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Subject} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {httpOptionsBase, quizzesApi, quizzesHistoryApi} from "../config";
-import {QuizHistory} from "../models/quizhistory.model";
+import {QuizHistory} from "../models/quizresult.model";
 
 @Injectable({
   providedIn: 'root'

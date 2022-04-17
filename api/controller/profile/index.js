@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 router.get('/:profileId', (req, res) => {
   try {
     const profile = Profile.getById(req.params.profileId)
+    profile.parameters = Parameter.where("profileId", req.params.profileId, true);
     res.status(200).json(profile)
   } catch (err) {
     res.status(500).json(err)
@@ -27,10 +28,15 @@ router.get('/:profileId', (req, res) => {
 router.post('/', (req, res) => {
   try {
     const profile = Profile.create({...req.body, "lastConnection": Date.now()})
-    Parameter.create({type : "PARKINSON_MOVEMENT_DETECTOR", value : 0, isEnabled : true, profileId : parseInt(profile.id, 10)})
-    Parameter.create({type : "PARKINSON_BOX_SPACING", value : 16, isEnabled : true, profileId : parseInt(profile.id, 10)})
-    Parameter.create({type : "PARKINSON_BOX_SIZING", value : 16, isEnabled : true, profileId : parseInt(profile.id, 10)})
-    Parameter.create({type : "VISION_SCALE", value : 16, isEnabled : true, profileId : parseInt(profile.id, 10)})
+    Parameter.create({
+      type: "PARKINSON_MOVEMENT_DETECTOR",
+      value: 0,
+      isEnabled: true,
+      profileId: parseInt(profile.id, 10)
+    })
+    Parameter.create({type: "PARKINSON_BOX_SPACING", value: 16, isEnabled: true, profileId: parseInt(profile.id, 10)})
+    Parameter.create({type: "PARKINSON_BOX_SIZING", value: 16, isEnabled: true, profileId: parseInt(profile.id, 10)})
+    Parameter.create({type: "VISION_SCALE", value: 16, isEnabled: true, profileId: parseInt(profile.id, 10)})
     res.status(201).json(profile)
   } catch (err) {
     console.log(err)
@@ -42,7 +48,7 @@ router.post('/', (req, res) => {
   }
 })
 
-router.delete('/:profileId' , (req,res) => {
+router.delete('/:profileId', (req, res) => {
   try {
     Profile.delete(req.params.profileId)
     res.status(200).json({msg: 'ok'})
