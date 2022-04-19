@@ -11,10 +11,14 @@ export class AppComponent {
 
   mouseMoved(event: MouseEvent) {
     this.coordinates.push({ x : event.clientX, y : event.clientY });
-    console.log(this.getAverage());
+    console.log("----------")
+    console.log("Moyenne de distance entre tous les mouvements de souris : " + this.getAverage());
+    // Tremblements constants notables si au dessus de 8
     this.pushOnLastCoordinates();
+    console.log("20 dernières positions : ");
     console.log(this.last_coordinates);
-    console.log(this.getAverageOnLastCoordinates());
+    console.log("Moyenne de distance entre les 20 derniers mouvements de souris : " + this.getAverageOnLastCoordinates());
+    // Mouvement brusque récent si au dessus de 15
   }
 
   getAverage(){
