@@ -18,9 +18,12 @@ import { ParameterComponent } from './parameter/parameter.component';
         QuizComponent,
         ParameterComponent
     ],
-    exports: [
-        HeaderComponent
-    ],
+  exports: [
+    HeaderComponent,
+    QuizComponent,
+    ParameterComponent,
+    HistoryComponent
+  ],
     imports: [
         CommonModule,
         ProfileRoutingModule,

@@ -1,0 +1,34 @@
+<app-admin-header></app-admin-header>
+<h3 class="center">Edition du profil de {{profile.firstname}} {{profile.name}}</h3>
+<div class="col-12 center">
+  <hr>
+  <div class="flex h-center">
+    <div class="profile-header">
+      <div class="col-3">
+        <div class="image" style="width:100px; height:100px; background-image: url({{profile.image}})"></div>
+      </div>
+    </div>
+    <div class="col-3">
+      <input name="name" placeholder="Latope" type="text">
+    </div>
+    <div class="col-3">
+      <input name="name" placeholder="Réné" type="text">
+    </div>
+    <div class="col-6">
+      <input type="file">
+    </div>
+  </div>
+
+
+  <hr>
+
+  <app-profile-history></app-profile-history>
+
+  <hr>
+  <div class="flex">
+    <div *ngFor="let parameter of profile.parameters" class="col-6 mb-2">
+      <app-profile-parameter [parameter]="parameter"></app-profile-parameter>
+    </div>
+  </div>
+
+</div>

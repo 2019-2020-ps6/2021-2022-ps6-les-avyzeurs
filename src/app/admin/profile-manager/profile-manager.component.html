@@ -1,13 +1,5 @@
-<div class="flex h-center">
-  <div class="col-4">
-   <button class="btn-polyquizz input block">Profils</button>
-  </div>
-  <div class="col-4 mb-1">
-    <button class="btn-polyquizz input block">Quiz</button>
-  </div>
-  <div class="col-8">
-    <input name="name" placeholder="Chercher avec le nom du profil" type="text">
-  </div>
+<app-admin-header></app-admin-header>
+<div>
   <div class="col-12 my-2">
     <div class="flex h-spacing">
       <div *ngFor="let profile of profileList" class="col-3">
