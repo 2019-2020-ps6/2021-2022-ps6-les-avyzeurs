@@ -2,7 +2,7 @@ import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Subject} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {httpOptionsBase, quizzesHistoryApi} from "../config";
-import {QuizProfileResult, QuizResult} from "../models/quizresult.model";
+import {QuizHistory, QuizProfileResult, QuizResult} from "../models/quizresult.model";
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,8 @@ export class QuizHistoryService {
      **/
   }
 
-  addQuiz(quiz: QuizResult): void {
+  addQuiz(quiz: QuizHistory): void {
     this.http.post<QuizResult>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesHistoryFromAPI());
   }
+
 }

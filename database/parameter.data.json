@@ -8,21 +8,21 @@
   },
   {
     "type": "PARKINSON_BOX_SPACING",
-    "value": 8,
+    "value": 128,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841026
   },
   {
     "type": "PARKINSON_BOX_SIZING",
-    "value": 8,
+    "value": 64,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841038
   },
   {
     "type": "VISION_SCALE",
-    "value": 16,
+    "value": 64,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841052
