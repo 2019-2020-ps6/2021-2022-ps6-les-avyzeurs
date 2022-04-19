@@ -10,11 +10,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {QuizModule} from "./quiz/quiz.module";
 import {ProfileModule} from "./profile/profile.module";
 import {AdminModule} from "./admin/admin.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, IndexComponent],
-  imports: [BrowserModule, appRoutingModule, ComponentsModule, HttpClientModule, QuizModule, ProfileModule, AdminModule, FormsModule],
+    imports: [BrowserModule, appRoutingModule, ComponentsModule, HttpClientModule, QuizModule, ProfileModule, AdminModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

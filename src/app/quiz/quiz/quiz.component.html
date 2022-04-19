@@ -17,7 +17,7 @@
 
       <div *ngIf="currentQuestion + 1 < quiz.questions.length;then nextQuestion else endQuiz"></div>
       <ng-template #nextQuestion>
-        <a (click)="currentQuestion = currentQuestion + 1" class="btn-polyquizz sp">Question suivante</a>
+        <a (click)="goToNextQuestion()" class="btn-polyquizz sp">Question suivante</a>
       </ng-template>
       <ng-template #endQuiz>
         <a (click)="saveQuizResult()" routerLink="/quiz-result/1" class="btn-polyquizz sp">Afficher les résultats du quiz</a>

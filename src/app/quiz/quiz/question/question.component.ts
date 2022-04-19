@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Question} from "../../../../models/quiz.model";
+import {QuizComponent} from "../quiz.component";
 
 @Component({
   selector: 'app-quiz-question', templateUrl: './question.component.html', styleUrls: ['./question.component.sass']
@@ -12,8 +13,9 @@ export class QuestionComponent implements OnInit {
   @Input() public question: Question;
 
   public answers = [];
+  public selectedAnswer: number;
 
-  constructor() {
+  constructor(@Inject(QuizComponent) private parentComponent: QuizComponent) {
   }
 
   ngOnInit(): void {
@@ -31,12 +33,26 @@ export class QuestionComponent implements OnInit {
   };
 
   selectAnswer(id: number) {
-    this.answers[id] = !this.answers[id];
-    console.log(this.answers)
+    //On sélectionne une nouvelle réponse
+    if (this.selectedAnswer != id) {
+      this.selectedAnswer = id;
+      this.question.answers.forEach((element) => {
+        document.getElementById("answer_" + element.id).classList.remove("selected");
+      })
+      document.getElementById("answer_" + id).classList.add("selected");
+      this.parentComponent.answers[this.parentComponent.currentQuestion] = id;
+    }
+    //On clique sur une réponse déjà sélectionnée
+    else {
+      this.selectedAnswer = undefined;
+      document.getElementById("answer_" + id).classList.remove("selected");
+      this.parentComponent.answers[this.parentComponent.currentQuestion] = undefined;
+    }
   }
 
   hasProp(o, name) {
     return typeof o[name] !== 'undefined';
   }
+
 
 }

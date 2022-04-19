@@ -7,6 +7,7 @@ import {ProfileService} from "../../../services/profile.service";
   templateUrl: './profile-manager.component.html',
   styleUrls: ['./profile-manager.component.sass']
 })
+
 export class ProfileManagerComponent implements OnInit {
   public profileList: Profile[] = [];
 

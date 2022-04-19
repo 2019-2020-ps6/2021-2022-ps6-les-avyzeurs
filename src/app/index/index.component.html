@@ -17,7 +17,7 @@
   <div class="col-12 center">
     <hr>
     <h1 class="mt-2">Vous ne trouvez pas votre profil?</h1>
-    <div class="flex h-center">
+    <!--<div class="flex h-center">
       <div class="col-3">
         <input name="name" placeholder="Nom" type="text">
       </div>
@@ -27,6 +27,17 @@
       <div class="col-2">
         <button class="btn-polyquizz input block">Créer</button>
       </div>
-    </div>
+    </div>-->
+    <form class="col-12" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+      <div class="col-12 mb-1">
+        <input formControlName="last_name" placeholder="Nom" type="text">
+      </div>
+      <div class="col-12 mb-1">
+        <input formControlName="first_name" placeholder="Prénom" type="text">
+      </div>
+      <div class="col-12">
+        <button class="btn-polyquizz input block" type="submit">Créer</button>
+      </div>
+    </form>
   </div>
 </div>

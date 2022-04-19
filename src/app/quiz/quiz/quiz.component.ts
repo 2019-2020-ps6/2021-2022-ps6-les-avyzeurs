@@ -11,6 +11,7 @@ export class QuizComponent implements OnInit {
   quitQuizPopup: boolean = false;
   userParamPopup: boolean = false;
   currentQuestion: number = 0;
+  public answers: number[] = [];
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => {
@@ -22,6 +23,12 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     const id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'));
     this.quizService.setSelectedQuizHistory(id);
+  }
+
+  goToNextQuestion(): void {
+    if (this.answers[this.currentQuestion] != undefined)
+      this.currentQuestion = this.currentQuestion + 1;
+    console.log(this.answers);
   }
 
   shuffleArray = array => {
@@ -56,7 +63,9 @@ export class QuizComponent implements OnInit {
   }
 
   saveQuizResult(): void {
-
+    console.log(this.answers);
+    //if (this.answers[this.currentQuestion] != undefined)
+      //
   }
 
 }
