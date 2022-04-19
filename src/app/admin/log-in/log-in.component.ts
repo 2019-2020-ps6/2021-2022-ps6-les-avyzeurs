@@ -3,23 +3,27 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 import {adminCredentials} from "../../../config";
 
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.sass']
 })
 export class LogInComponent implements OnInit {
+
   profileForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
   });
   containsError: boolean = false
   errorMsg?: string
-  constructor() { }
 
 
-  ngOnInit(): void {
-  }
+  constructor(private router: Router) {}
+
+
+  ngOnInit(): void {}
 
   onSubmit(data) {
     let credentialValid = false;
@@ -33,5 +37,10 @@ export class LogInComponent implements OnInit {
       this.containsError = true;
       this.errorMsg = "Identifiants incorrects"
     }
+
+    this.router.navigate(['/admin/profileManager'])
+
+
   }
+
 }
