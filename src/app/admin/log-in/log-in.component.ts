@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
 import {adminCredentials} from "../../../config";
@@ -31,14 +31,14 @@ export class LogInComponent implements OnInit {
       if (adminCredentials[key]["username"] === data.username && adminCredentials[key]["password"] === data.password)
         credentialValid = true
     })
-    if(credentialValid)
+    if (credentialValid) {
       localStorage.setItem("isLoggedAsAdmin", "true")
-    else{
+      this.router.navigate(['/admin/profileManager'])
+    } else {
       this.containsError = true;
       this.errorMsg = "Identifiants incorrects"
     }
 
-    this.router.navigate(['/admin/profileManager'])
 
 
   }

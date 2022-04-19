@@ -1,10 +1,7 @@
 const {Router} = require('express')
 
-const {Profile, Quiz, Parameter} = require('../../models')
+const {Profile, Parameter} = require('../../models')
 const router = new Router()
-const parametersRouter = require("./parameter")
-
-router.use('/:profileId/parameters', parametersRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -29,10 +26,7 @@ router.post('/', (req, res) => {
   try {
     const profile = Profile.create({...req.body, "lastConnection": Date.now()})
     Parameter.create({
-      type: "PARKINSON_MOVEMENT_DETECTOR",
-      value: 0,
-      isEnabled: true,
-      profileId: parseInt(profile.id, 10)
+      type: "PARKINSON_MOVEMENT_DETECTOR", value: 0, isEnabled: true, profileId: parseInt(profile.id, 10)
     })
     Parameter.create({type: "PARKINSON_BOX_SPACING", value: 16, isEnabled: true, profileId: parseInt(profile.id, 10)})
     Parameter.create({type: "PARKINSON_BOX_SIZING", value: 16, isEnabled: true, profileId: parseInt(profile.id, 10)})
