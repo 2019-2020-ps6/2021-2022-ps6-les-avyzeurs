@@ -130,26 +130,22 @@ hr
   border: 0
   border-radius: 1px
 
-.font-size-16
-  font-size: 1rem
 
-.font-size-24
-  font-size: 1.5rem
+$spacings: 8, 16, 32, 64, 128
 
-.font-size-32
-  font-size: 2rem
+@each $spacing in $spacings
+  .box-spacing-#{$spacing}
+    margin: #{$spacing}px
 
-.font-size-40
-  font-size: 2.5rem
+  .col-12.box-spacing-#{$spacing}
+    margin-left: 0
+    margin-right: 0
 
-.font-size-48
-  font-size: 3rem
+$sizes: 16, 24, 32, 40, 48, 56, 64
 
-.font-size-56
-  font-size: 3.5rem
-
-.font-size-64
-  font-size: 4rem
+@each $size in $sizes
+  .font-size-#{$size}
+    font-size: #{$size}px !important
 
 .container
   width: 100%

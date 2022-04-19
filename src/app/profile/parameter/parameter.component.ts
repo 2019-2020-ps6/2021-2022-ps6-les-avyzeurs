@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Parameter} from "../../../models/profile.model";
+import {ParameterService} from "../../../services/parameter.service";
 
 @Component({
   selector: 'app-profile-parameter',
@@ -10,7 +11,7 @@ export class ParameterComponent implements OnInit {
 
   @Input() parameter: Parameter;
 
-  constructor() {
+  constructor(public parameterService: ParameterService) {
 
   }
 
@@ -20,7 +21,7 @@ export class ParameterComponent implements OnInit {
   getVisionScaleArray() {
     return {
       16: "Taille à 100% (1/7)",
-      24: "Taille à 150% (1/7)",
+      24: "Taille à 150% (2/7)",
       32: "Taille à 200% (3/7)",
       40: "Taille à 250% (4/7)",
       48: "Taille à 300% (5/7)",
@@ -47,31 +48,47 @@ export class ParameterComponent implements OnInit {
 
 
   down() {
+
+    let currentArray;
+
     switch (this.parameter.type) {
       case "VISION_SCALE":
-        if (this.previous(this.getVisionScaleArray(), this.parameter.value) != undefined) this.parameter.value = Number(this.previous(this.getVisionScaleArray(), this.parameter.value))
+        currentArray = this.getVisionScaleArray();
         break;
       case "PARKINSON_BOX_SIZING":
-        if (this.previous(this.getBoxSizingArray(), this.parameter.value) != undefined) this.parameter.value = Number(this.previous(this.getBoxSizingArray(), this.parameter.value))
+        currentArray = this.getBoxSizingArray();
         break;
       case "PARKINSON_BOX_SPACING":
-        if (this.previous(this.getBoxSpacingArray(), this.parameter.value) != undefined) this.parameter.value = Number(this.previous(this.getBoxSpacingArray(), this.parameter.value))
+        currentArray = this.getBoxSpacingArray();
         break;
     }
+
+    if (this.previous(currentArray, this.parameter.value) != undefined) this.updateValue(Number(this.previous(currentArray, this.parameter.value)));
+
   }
 
   up() {
+    let currentArray;
+
     switch (this.parameter.type) {
       case "VISION_SCALE":
-        if (this.next(this.getVisionScaleArray(), this.parameter.value) != undefined) this.parameter.value = Number(this.next(this.getVisionScaleArray(), this.parameter.value))
+        currentArray = this.getVisionScaleArray();
         break;
       case "PARKINSON_BOX_SIZING":
-        if (this.next(this.getBoxSizingArray(), this.parameter.value) != undefined) this.parameter.value = Number(this.next(this.getBoxSizingArray(), this.parameter.value))
+        currentArray = this.getBoxSizingArray();
         break;
       case "PARKINSON_BOX_SPACING":
-        if (this.next(this.getBoxSpacingArray(), this.parameter.value) != undefined) this.parameter.value = Number(this.next(this.getBoxSpacingArray(), this.parameter.value))
+        currentArray = this.getBoxSpacingArray();
         break;
     }
+
+    if (this.next(currentArray, this.parameter.value) != undefined) this.updateValue(Number(this.next(currentArray, this.parameter.value)))
+
+  }
+
+  updateValue(i: number) {
+    this.parameter.value = i;
+    this.parameterService.saveParameter(this.parameter)
   }
 
   next(db, key) {

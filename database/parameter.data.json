@@ -1,21 +1,21 @@
 [
   {
     "type": "PARKINSON_MOVEMENT_DETECTOR",
-    "value": 0,
+    "value": 1,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841014
   },
   {
     "type": "PARKINSON_BOX_SPACING",
-    "value": 16,
+    "value": 8,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841026
   },
   {
     "type": "PARKINSON_BOX_SIZING",
-    "value": 16,
+    "value": 8,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841038

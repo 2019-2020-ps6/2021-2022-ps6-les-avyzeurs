@@ -1,6 +1,8 @@
 <app-profile-header [onQuizzes]="true"></app-profile-header>
-<div class="flex">
-  <div *ngFor="let quiz of quizList" class="col-3">
+
+<div class="flex h-center">
+  <div *ngFor="let quiz of quizList"
+       class="col-3 {{getClass('PARKINSON_BOX_SIZING')}} {{getClass('PARKINSON_BOX_SPACING')}} {{getClass('VISION_SCALE')}}">
     <app-component-quiz [quiz]="quiz"></app-component-quiz>
   </div>
 </div>
