@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {httpOptionsBase, profileApi, quizzesHistoryApi} from "../config"
+import {httpOptionsBase, profilesApi, quizzesHistoryApi} from "../config"
 import {BehaviorSubject, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Profile} from "../models/profile.model";
@@ -33,7 +33,7 @@ export class ProfileService {
   }
 
   addProfile(profile: Profile): void {
-    this.http.post<Profile>(profileApi, {name: profile.name, firstname: profile.firstname}, httpOptionsBase).subscribe(() => this.getProfilesFromApi());
+    this.http.post<Profile>(profilesApi, {name: profile.name, firstname: profile.firstname}, httpOptionsBase).subscribe(() => this.getProfilesFromApi());
   }
 
 }
