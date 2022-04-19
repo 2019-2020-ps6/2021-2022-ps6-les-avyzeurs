@@ -1,6 +1,5 @@
 @import "variables"
 
-
 .card
   padding: 12px
   background: $background-2
@@ -24,13 +23,16 @@
     background: $main
     color: $background-1
     font-family: $redhatdisplay
-    font-size: 18px
+    font-size: 112.5%
     text-align: center
     padding: 14px
     border-radius: 12px
+    overflow-wrap: anywhere
+    flex-direction: column
+    align-items: center
 
     .quiz-questions
-      font-size: 14px
+      font-size: 87.5%
 
   &.profile
     .card-image
@@ -39,8 +41,9 @@
   &.quiz
     .card-text
       min-height: 5rem
+
       .quiz-questions
-        font-size: 12px
+        font-size: 75%
 
 
   &:hover
