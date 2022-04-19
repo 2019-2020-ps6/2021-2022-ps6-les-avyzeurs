@@ -42,6 +42,7 @@ router.get('/profile/:profileId', (req, res) => {
       q.score = score;
       q.nbQuestions = Question.where("quizId", q.quizId, true).length
     })
+    quizHistory.reverse();
     res.status(200).json(quizHistory)
   } catch (err) {
     res.status(500).json(err)

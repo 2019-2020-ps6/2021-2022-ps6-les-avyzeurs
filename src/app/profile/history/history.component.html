@@ -5,7 +5,7 @@
       <h2>Derniers quiz effectués</h2>
     </div>
     <div class="col-12">
-      <div *ngFor="let profileResult of quizzesHistory" class="flex">
+      <div *ngFor="let profileResult of quizzesHistory | slice:0:5; let i=index"  class="flex">
         <app-profile-history-quiz [quizProfileResult]="profileResult" class="col-12"></app-profile-history-quiz>
       </div>
     </div>

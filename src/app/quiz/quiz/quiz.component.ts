@@ -64,8 +64,8 @@ export class QuizComponent implements OnInit {
 
   saveQuizResult(): void {
     console.log(this.answers);
-    //if (this.answers[this.currentQuestion] != undefined)
-      //
+    if (this.answers[this.currentQuestion] != undefined)
+      this.quizService.saveResult({answers: this.answers, id: 0, profileId: Number.parseInt(localStorage.getItem("currentSessionID")), quizId: this.quiz.id});
   }
 
 }
