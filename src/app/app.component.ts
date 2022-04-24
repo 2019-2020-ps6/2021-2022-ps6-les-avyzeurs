@@ -6,6 +6,8 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'PolyQuizz - Les Avyzeurs';
 
+  suddenMovement: boolean = false;
+  myTimeout: number = 0;
   coordinates: Array<Coordinate> = [];
   last_coordinates: Array<Coordinate> = [{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0}];
 
@@ -13,12 +15,13 @@ export class AppComponent {
     this.coordinates.push({ x : event.clientX, y : event.clientY });
     console.log("----------")
     console.log("Moyenne de distance entre tous les mouvements de souris : " + this.getAverage());
-    // Tremblements constants notables si au dessus de 8
+    // Tremblements constants si nombre faible (<5), pas de tremblement si nombre moyen, tremblements forts si nombre élevé (>10)
     this.pushOnLastCoordinates();
     console.log("20 dernières positions : ");
     console.log(this.last_coordinates);
     console.log("Moyenne de distance entre les 20 derniers mouvements de souris : " + this.getAverageOnLastCoordinates());
-    // Mouvement brusque récent si au dessus de 15
+    // Mouvement brusque récent si au triple des mouvements constants
+    console.log(this.isSudden());
   }
 
   getAverage(){
@@ -44,6 +47,23 @@ export class AppComponent {
       total = total + (Math.sqrt(Math.pow(this.last_coordinates[i-1].x - this.last_coordinates[i].x,2) + Math.pow(this.last_coordinates[i-1].y - this.last_coordinates[i].y,2)))
     }
     return total/20;
+  }
+
+  isSudden() {
+    //on cherche a savoir si un mouvement est brusque seulement après avoir enregistré quelques mouvements
+    if(this.coordinates.length>100) {
+      //on définit un mouvement comme brusque si il est 4 fois plus rapide que les mouvements habituels
+      if(this.getAverageOnLastCoordinates()>4*this.getAverage()) {
+        this.suddenMovement = true;
+        clearTimeout(this.myTimeout);
+        this.myTimeout = setTimeout(this.setSuddenToFalse,1000);
+      }
+    }
+    return this.suddenMovement;
+  }
+
+  setSuddenToFalse() {
+    this.suddenMovement = false;
   }
 }
 export interface Coordinate {
