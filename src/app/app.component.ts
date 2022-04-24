@@ -7,7 +7,6 @@ export class AppComponent {
   title = 'PolyQuizz - Les Avyzeurs';
 
   suddenMovement: boolean = false;
-  myTimeout: number = 0;
   coordinates: Array<Coordinate> = [];
   last_coordinates: Array<Coordinate> = [{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0}];
 
@@ -21,7 +20,8 @@ export class AppComponent {
     console.log(this.last_coordinates);
     console.log("Moyenne de distance entre les 20 derniers mouvements de souris : " + this.getAverageOnLastCoordinates());
     // Mouvement brusque récent si au triple des mouvements constants
-    console.log(this.isSudden());
+    this.isSudden();
+    console.log(this.suddenMovement);
   }
 
   getAverage(){
@@ -55,11 +55,11 @@ export class AppComponent {
       //on définit un mouvement comme brusque si il est 4 fois plus rapide que les mouvements habituels
       if(this.getAverageOnLastCoordinates()>4*this.getAverage()) {
         this.suddenMovement = true;
-        clearTimeout(this.myTimeout);
-        this.myTimeout = setTimeout(this.setSuddenToFalse,1000);
+        setTimeout(() => {
+          this.setSuddenToFalse();
+        }, 1000);
       }
     }
-    return this.suddenMovement;
   }
 
   setSuddenToFalse() {
