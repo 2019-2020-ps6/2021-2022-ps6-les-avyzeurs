@@ -10,6 +10,8 @@ export class QuizComponent implements OnInit {
   public quiz: Quiz;
   quitQuizPopup: boolean = false;
   userParamPopup: boolean = false;
+  suddenPopupNext: boolean = false;
+  suddenPopupEnd: boolean = false;
   currentQuestion: number = 0;
   public answers: number[] = [];
 
@@ -26,9 +28,11 @@ export class QuizComponent implements OnInit {
   }
 
   goToNextQuestion(): void {
-    if (this.answers[this.currentQuestion] != undefined)
+    if(this.suddenPopupNext) {this.suddenPopupNext=false;}
+    if(this.currentQuestion + 1 >= this.quiz.questions.length) {this.saveQuizResult()}
+    else {if (this.answers[this.currentQuestion] != undefined)
       this.currentQuestion = this.currentQuestion + 1;
-    console.log(this.answers);
+    console.log(this.answers);}
   }
 
   shuffleArray = array => {
@@ -48,6 +52,12 @@ export class QuizComponent implements OnInit {
       case "userParamPopup":
         this.userParamPopup = false;
         break;
+      case "suddenPopupNext":
+        this.suddenPopupNext = false;
+        break;
+      case "suddenPopupEnd":
+        this.suddenPopupEnd = false;
+        break;
     }
   }
 
@@ -58,6 +68,12 @@ export class QuizComponent implements OnInit {
         break;
       case "userParamPopup":
         this.userParamPopup = true;
+        break;
+      case "suddenPopupNext":
+        if (this.answers[this.currentQuestion] != undefined) {this.suddenPopupNext = true;}
+        break;
+      case "suddenPopupEnd":
+        if (this.answers[this.currentQuestion] != undefined) {this.suddenPopupEnd = true;}
         break;
     }
   }

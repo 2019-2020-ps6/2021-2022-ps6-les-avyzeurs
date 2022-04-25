@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'PolyQuizz - Les Avyzeurs';
 
-  suddenMovement: boolean = false;
+  public suddenMovement: boolean = false;
   coordinates: Array<Coordinate> = [];
   last_coordinates: Array<Coordinate> = [{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0},{x : 0, y : 0}];
 

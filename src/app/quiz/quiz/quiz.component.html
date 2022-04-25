@@ -14,13 +14,65 @@
         </app-quiz-question>
       </div>
       <hr>
+<!--
+<div *ngIf="currentQuestion + 1 < quiz.questions.length;then nextQuestion else endQuiz"></div>
+<ng-template #nextQuestion>
+  <a (click)="goToNextQuestion()" class="btn-polyquizz sp">Oui1</a>
+</ng-template>
+<ng-template #endQuiz>
+  <a (click)="saveQuizResult()" routerLink="/quiz-result/1" class="btn-polyquizz sp">Oui2</a>
+</ng-template>
+-->
 
+<!-- #####################################################################################" -->
+      <div [ngClass]="suddenPopupNext ? 'opened' : 'closed'" class="modal" id="suddenPopupNext">
+        <div class="popup small">
+          <div class="close-box"><span (click)="closeModal('suddenPopupNext')" class="close"><i
+            class="fas fa-times"></i></span>
+          </div>
+          <h3>Êtes vous sûr de votre réponse ?</h3>
+          <!--
+          <br>
+          <h4>Appuyez sur Entrée pour valider ou sur Esc pour annuler</h4>
+          -->
+          <div class="flex">
+            <div class="col-6">
+              <a (click)="goToNextQuestion()" class="btn-polyquizz red block">Oui</a>
+            </div>
+            <div class="col-6">
+              <a (click)="closeModal('suddenPopupNext')" class="btn-polyquizz block" href="javascript:void(0)">Non</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- #####################################################################################" -->
+      <div [ngClass]="suddenPopupEnd ? 'opened' : 'closed'" class="modal" id="suddenPopupEnd">
+        <div class="popup small">
+          <div class="close-box"><span (click)="closeModal('suddenPopupEnd')" class="close"><i
+            class="fas fa-times"></i></span>
+          </div>
+          <h3>Êtes vous sûr de votre réponse ?</h3>
+          <!--
+          <br>
+          <h4>Appuyez sur Entrée pour valider ou sur Esc pour annuler</h4>
+          -->
+          <div class="flex">
+            <div class="col-6">
+              <a (click)="saveQuizResult()" routerLink="/quiz-result/1" class="btn-polyquizz red block">Oui</a>
+            </div>
+            <div class="col-6">
+              <a (click)="closeModal('suddenPopupEnd')" class="btn-polyquizz block" href="javascript:void(0)">Non</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- #####################################################################################" -->
       <div *ngIf="currentQuestion + 1 < quiz.questions.length;then nextQuestion else endQuiz"></div>
       <ng-template #nextQuestion>
-        <a (click)="goToNextQuestion()" class="btn-polyquizz sp">Question suivante</a>
+        <a (click)="openModal('suddenPopupNext')" class="btn-polyquizz" href="javascript:void(0)">Question suivante</a>
       </ng-template>
       <ng-template #endQuiz>
-        <a (click)="saveQuizResult()" routerLink="/quiz-result/1" class="btn-polyquizz sp">Afficher les résultats du quiz</a>
+        <a (click)="openModal('suddenPopupEnd')" class="btn-polyquizz" href="javascript:void(0)">Afficher les résultats du quiz</a>
       </ng-template>
 
       <div class="actions">
