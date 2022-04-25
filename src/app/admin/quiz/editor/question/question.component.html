@@ -1,0 +1,23 @@
+<div class="panel mb-1">
+  <div class="panel-head">
+    <h2>Question {{this.id + 1}}</h2>
+  </div>
+  <div class="col-12 mb-1">
+    <input placeholder="Question" required type="text" value="{{question.question}}">
+  </div>
+  <div class="col-12 mb-1">
+    <input placeholder="Image de la question" required type="text" value="{{question.image}}">
+  </div>
+  <div class="col-12">
+    <input placeholder="Vidéo de la question" required type="text" value="{{question.video}}">
+  </div>
+
+  <ng-container *ngFor="let answer of question.answers; index as i">
+    <app-admin-quiz-editor-answer [answer]="answer" [id]="i"></app-admin-quiz-editor-answer>
+  </ng-container>
+
+  <div class="col-12 mt-1">
+    <a (click)="addAnswer()" class="btn-polyquizz input block">Ajouter une réponse</a>
+  </div>
+
+</div>

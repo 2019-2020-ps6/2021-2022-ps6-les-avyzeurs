@@ -68,6 +68,22 @@
   {
     "quizId": 1648542010431,
     "profileId": 1649004020542,
-    "id": 1650361750110
+    "id": 1650361750110,
+    "name": "Les voitures historiques",
+    "score": 8,
+    "nbQuestions": 8
+  },
+  {
+    "quizId": 1648542010431,
+    "profileId": 1649004020542,
+    "id": 1650906714224,
+    "name": "Les voitures historiques",
+    "score": 2,
+    "nbQuestions": 8
+  },
+  {
+    "quizId": 1648542010431,
+    "profileId": 1649004020542,
+    "id": 1650906845810
   }
 ]

@@ -15,14 +15,14 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
 
   constructor(private http: HttpClient) {
-    this.getQuizzesHistoryFromAPI();
+    this.getQuizzesFromAPI();
   }
 
-  setSelectedQuizHistory(quizId: number): void {
+  setSelectedQuiz(quizId: number): void {
     this.http.get<Quiz>(quizzesApi + "/" + quizId).subscribe((quiz) => this.quizSelected$.next(quiz));
   }
 
-  getQuizzesHistoryFromAPI() {
+  getQuizzesFromAPI() {
     this.http.get<Quiz[]>(quizzesApi).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
@@ -30,6 +30,6 @@ export class QuizService {
   }
 
   saveResult(quiz: QuizHistory): void {
-    this.http.post<Quiz>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesHistoryFromAPI());
+    this.http.post<Quiz>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesFromAPI());
   }
 }

@@ -4,8 +4,7 @@ import {QuizResult} from "../../../../models/quizresult.model";
 import {QuizHistoryService} from "../../../../services/quizhistory.service";
 
 @Component({
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.sass']
+  templateUrl: './result.component.html', styleUrls: ['./result.component.sass']
 })
 export class ResultComponent implements OnInit {
 

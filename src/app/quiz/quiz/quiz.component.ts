@@ -29,7 +29,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'));
-    this.quizService.setSelectedQuizHistory(id);
+    this.quizService.setSelectedQuiz(id);
   }
 
   @HostListener('document:keypress', ['$event'])

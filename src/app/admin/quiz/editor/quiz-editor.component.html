@@ -1,0 +1,39 @@
+<app-admin-header></app-admin-header>
+<div class="flex">
+  <div class="col-12">
+    <div *ngIf="editing; then editQuiz else newQuiz"></div>
+    <ng-template #newQuiz><h1 class="center">Nouveau Quiz</h1></ng-template>
+    <ng-template #editQuiz><h1 class="center">Edition de Quiz</h1></ng-template>
+  </div>
+  <form class="col-12">
+    <div class="col-12 mb-1">
+      <input name="name" placeholder="Nom du quiz" required type="text" value="{{quiz.name}}">
+    </div>
+    <div class="col-12 mb-1">
+      <input name="image" placeholder="Lien de l'image du quiz" type="text" value="{{quiz.image}}">
+    </div>
+
+    <ng-container *ngFor="let question of quiz.questions; index as i">
+      <app-admin-quiz-editor-question [id]="i" [question]="question"></app-admin-quiz-editor-question>
+    </ng-container>
+
+    <div class="col-12">
+      <a (click)="addQuestion()" class="btn-polyquizz input block">Ajouter une question</a>
+    </div>
+
+    <div class="flex col-12 mt-2">
+      <div class="col-6">
+        <a class="btn-polyquizz input block red" routerLink="/admin/quiz">Annuler</a>
+      </div>
+      <div class="col-6">
+        <div *ngIf="editing; then saveQuiz else createQuiz"></div>
+        <ng-template #saveQuiz>
+          <button class="btn-polyquizz input block green" type="submit">Sauvegarder</button>
+        </ng-template>
+        <ng-template #createQuiz>
+          <button class="btn-polyquizz input block green" type="submit">Créer</button>
+        </ng-template>
+      </div>
+    </div>
+  </form>
+</div>

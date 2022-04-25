@@ -33,7 +33,7 @@ export class LogInComponent implements OnInit {
     })
     if (credentialValid) {
       localStorage.setItem("isLoggedAsAdmin", "true")
-      this.router.navigate(['/admin/profileManager'])
+      this.router.navigate(['/admin/profile'])
     } else {
       this.containsError = true;
       this.errorMsg = "Identifiants incorrects"
