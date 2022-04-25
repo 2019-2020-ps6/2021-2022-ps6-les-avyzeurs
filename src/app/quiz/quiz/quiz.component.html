@@ -66,13 +66,19 @@
           </div>
         </div>
       </div>
-<!-- #####################################################################################" -->
+<!-- #####################################################################################"-->
       <div *ngIf="currentQuestion + 1 < quiz.questions.length;then nextQuestion else endQuiz"></div>
       <ng-template #nextQuestion>
         <a (click)="openModal('suddenPopupNext')" class="btn-polyquizz" href="javascript:void(0)">Question suivante</a>
       </ng-template>
       <ng-template #endQuiz>
-        <a (click)="openModal('suddenPopupEnd')" class="btn-polyquizz" href="javascript:void(0)">Afficher les résultats du quiz</a>
+        <div *ngIf="getParam();then popup else noPopup"></div>
+        <ng-template #popup>
+          <a (click)="openModal('suddenPopupEnd')" class="btn-polyquizz" href="javascript:void(0)">Afficher les résultats du quiz</a>
+        </ng-template>
+        <ng-template #noPopup>
+          <a (click)="saveQuizResult()" class="btn-polyquizz" routerLink="/quiz-result/1" >Afficher les résultats du quiz</a>
+        </ng-template>
       </ng-template>
 
       <div class="actions">

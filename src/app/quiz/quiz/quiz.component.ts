@@ -106,4 +106,9 @@ export class QuizComponent implements OnInit {
       this.quizService.saveResult({answers: this.answers, id: 0, profileId: Number.parseInt(localStorage.getItem("currentSessionID")), quizId: this.quiz.id});
   }
 
+  getParam(): boolean {
+    this.parameterService.getParametersFromApi();
+    return this.appComponent.suddenMovement && this.parameterService.parameters[0].value==1;
+  }
+
 }
