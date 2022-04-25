@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {QuizService} from "../../../../services/quiz.service";
 import {Quiz as ModelQuiz} from "../../../../models/quiz.model";
 
@@ -16,7 +16,7 @@ export class QuizEditorComponent implements OnInit {
     name: ['', Validators.required],
     image: ['']
   })**/
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.realQuiz = quiz;
       if(this.editing) {
@@ -60,16 +60,13 @@ export class QuizEditorComponent implements OnInit {
     } else {
       this.quizService.createQuiz(json)
     }
-    console.log(JSON.parse(json))
+    this.router.navigate(['/admin/quiz']);
   }
 
   addQuestion() {
     this.quiz.questions.push(new Question())
   }
 
-  updateValue(value: any) {
-
-  }
 }
 
 export class Quiz {

@@ -15,7 +15,7 @@
   },
   {
     "type": "PARKINSON_BOX_SIZING",
-    "value": 32,
+    "value": 64,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841038
