@@ -78,7 +78,7 @@ export class QuizComponent implements OnInit {
       case "suddenPopupNext":
         this.parameterService.getParametersFromApi();
         if (this.answers[this.currentQuestion] != undefined) {
-          if(this.appComponent.suddenMovement && this.parameterService.parameters[0].isEnabled){
+          if(this.appComponent.suddenMovement && this.parameterService.parameters[0].value==1){
             this.suddenPopupNext = true;
           }
           else{
@@ -89,7 +89,7 @@ export class QuizComponent implements OnInit {
       case "suddenPopupEnd":
         this.parameterService.getParametersFromApi();
         if (this.answers[this.currentQuestion] != undefined) {
-          if(this.appComponent.suddenMovement && this.parameterService.parameters[0].isEnabled){
+          if(this.appComponent.suddenMovement && this.parameterService.parameters[0].value==1){
             this.suddenPopupEnd = true;
           }
           else{
