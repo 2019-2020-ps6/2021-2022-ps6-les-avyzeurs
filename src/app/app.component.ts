@@ -16,8 +16,8 @@ export class AppComponent {
     console.log("Moyenne de distance entre tous les mouvements de souris : " + this.getAverage());
     // Tremblements constants si nombre faible (<5), pas de tremblement si nombre moyen, tremblements forts si nombre élevé (>10)
     this.pushOnLastCoordinates();
-    console.log("20 dernières positions : ");
-    console.log(this.last_coordinates);
+    //console.log("20 dernières positions : ");
+    //console.log(this.last_coordinates);
     console.log("Moyenne de distance entre les 20 derniers mouvements de souris : " + this.getAverageOnLastCoordinates());
     // Mouvement brusque récent si au triple des mouvements constants
     this.isSudden();
@@ -57,7 +57,7 @@ export class AppComponent {
         this.suddenMovement = true;
         setTimeout(() => {
           this.setSuddenToFalse();
-        }, 1000);
+        }, 2000);
       }
     }
   }

@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
+import {AppComponent} from "../../app.component";
+import {ParameterService} from "../../../services/parameter.service";
 
 @Component({
   selector: 'app-quiz', templateUrl: './quiz.component.html', styleUrls: ['./quiz.component.sass']
@@ -13,9 +15,10 @@ export class QuizComponent implements OnInit {
   suddenPopupNext: boolean = false;
   suddenPopupEnd: boolean = false;
   currentQuestion: number = 0;
+  errorDueToMovement: number = 0;
   public answers: number[] = [];
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, @Inject(AppComponent) private appComponent: AppComponent, @Inject(ParameterService) private parameterService: ParameterService) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
       this.shuffleArray(this.quiz.questions)
@@ -33,6 +36,7 @@ export class QuizComponent implements OnInit {
     else {if (this.answers[this.currentQuestion] != undefined)
       this.currentQuestion = this.currentQuestion + 1;
     console.log(this.answers);}
+    console.log(this.errorDueToMovement);
   }
 
   shuffleArray = array => {
@@ -54,9 +58,11 @@ export class QuizComponent implements OnInit {
         break;
       case "suddenPopupNext":
         this.suddenPopupNext = false;
+        this.errorDueToMovement++;
         break;
       case "suddenPopupEnd":
         this.suddenPopupEnd = false;
+        this.errorDueToMovement++;
         break;
     }
   }
@@ -70,10 +76,26 @@ export class QuizComponent implements OnInit {
         this.userParamPopup = true;
         break;
       case "suddenPopupNext":
-        if (this.answers[this.currentQuestion] != undefined) {this.suddenPopupNext = true;}
+        this.parameterService.getParametersFromApi();
+        if (this.answers[this.currentQuestion] != undefined) {
+          if(this.appComponent.suddenMovement && this.parameterService.parameters[0].isEnabled){
+            this.suddenPopupNext = true;
+          }
+          else{
+            this.goToNextQuestion();
+          }
+        }
         break;
       case "suddenPopupEnd":
-        if (this.answers[this.currentQuestion] != undefined) {this.suddenPopupEnd = true;}
+        this.parameterService.getParametersFromApi();
+        if (this.answers[this.currentQuestion] != undefined) {
+          if(this.appComponent.suddenMovement && this.parameterService.parameters[0].isEnabled){
+            this.suddenPopupEnd = true;
+          }
+          else{
+            this.saveQuizResult();
+          }
+        }
         break;
     }
   }

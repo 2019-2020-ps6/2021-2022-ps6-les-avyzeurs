@@ -11,7 +11,7 @@ import {Quiz} from "../models/quiz.model";
 export class ParameterService {
 
   public parameterSelected$: Subject<Parameter> = new Subject();
-  private parameters: Parameter[] = []
+  public parameters: Parameter[] = []
   public parameters$: BehaviorSubject<Parameter[]> = new BehaviorSubject(this.parameters);
 
   constructor(private http: HttpClient) {
