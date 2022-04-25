@@ -14,10 +14,10 @@ export class AppComponent {
     this.coordinates.push({ x : event.clientX, y : event.clientY });
     //console.log("----------")
     //console.log("Moyenne de distance entre tous les mouvements de souris : " + this.getAverage());
-    // Tremblements constants si nombre faible (<5), pas de tremblement si nombre moyen, tremblements forts si nombre élevé (>10)
+    /**Tremblements constants si nombre faible (<5), pas de tremblement si nombre moyen, tremblements forts si nombre élevé (>10)**/
     this.pushOnLastCoordinates();
     //console.log("Moyenne de distance entre les 20 derniers mouvements de souris : " + this.getAverageOnLastCoordinates());
-    // Mouvement brusque récent si au triple des mouvements constants
+    /** Mouvement brusque récent si au triple des mouvements constants**/
     this.isSudden();
     //console.log(this.suddenMovement);
   }

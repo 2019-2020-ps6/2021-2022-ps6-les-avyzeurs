@@ -1,9 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, HostListener} from '@angular/core';
+import {Router} from '@angular/router';
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {AppComponent} from "../../app.component";
 import {ParameterService} from "../../../services/parameter.service";
+
 
 @Component({
   selector: 'app-quiz', templateUrl: './quiz.component.html', styleUrls: ['./quiz.component.sass']
@@ -18,7 +20,7 @@ export class QuizComponent implements OnInit {
   errorDueToMovement: number = 0;
   public answers: number[] = [];
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService, @Inject(AppComponent) private appComponent: AppComponent, @Inject(ParameterService) private parameterService: ParameterService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, @Inject(AppComponent) private appComponent: AppComponent, @Inject(ParameterService) private parameterService: ParameterService, private router: Router ) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
       this.shuffleArray(this.quiz.questions)
@@ -28,6 +30,27 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     const id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'));
     this.quizService.setSelectedQuizHistory(id);
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if(event.key=="Enter"){
+      if(this.suddenPopupNext){
+        this.goToNextQuestion();
+      }
+      if(this.suddenPopupEnd){
+        this.saveQuizResult();
+        this.router.navigate(["/quiz-result/1"]);
+      }
+    }
+    if(event.key=="a" || event.key=="A"){
+      if(this.suddenPopupNext){
+        this.closeModal("suddenPopupNext");
+      }
+      if(this.suddenPopupEnd){
+        this.closeModal("suddenPopupEnd");
+      }
+    }
   }
 
   goToNextQuestion(): void {
