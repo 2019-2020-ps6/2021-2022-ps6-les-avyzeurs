@@ -33,8 +33,11 @@ export class QuizService {
     this.http.post<Quiz>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesFromAPI());
   }
 
-  createQuiz(name, image): Observable<number> {
-    const body = JSON.stringify(name, image);
-    return this.http.post<number>(quizzesApi + "/", body, httpOptionsBase)
+  createQuiz(json: string): void {
+    this.http.post<Quiz>(quizzesApi + "/new", JSON.parse(json), httpOptionsBase).subscribe(() => this.getQuizzesFromAPI());
+  }
+
+  deleteQuiz(id: number): void {
+    this.http.delete<Quiz>(quizzesApi + "/" + id).subscribe(() => this.getQuizzesFromAPI())
   }
 }

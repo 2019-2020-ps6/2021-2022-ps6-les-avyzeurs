@@ -34,8 +34,6 @@
     "questionId": 1,
     "id": 4
   },
-
-
   {
     "type": 2,
     "label": "Ford T",
@@ -64,10 +62,6 @@
     "questionId": 2,
     "id": 8
   },
-
-
-
-
   {
     "type": 2,
     "label": "Swallow Sidecar SS1",
@@ -96,9 +90,6 @@
     "questionId": 3,
     "id": 12
   },
-
-
-
   {
     "type": 2,
     "label": "Swallow Sidecar SS1",
@@ -127,10 +118,6 @@
     "questionId": 4,
     "id": 16
   },
-
-
-
-
   {
     "type": 2,
     "label": "Austin Mini",
@@ -159,9 +146,6 @@
     "questionId": 5,
     "id": 20
   },
-
-
-
   {
     "type": 2,
     "label": "Subaru 360",
@@ -190,10 +174,6 @@
     "questionId": 6,
     "id": 24
   },
-
-
-
-
   {
     "type": 2,
     "label": "Tesla Model X",
@@ -222,9 +202,6 @@
     "questionId": 7,
     "id": 28
   },
-
-
-
   {
     "type": 2,
     "label": "Peugeot 203",
@@ -252,5 +229,33 @@
     "correctAnswer": false,
     "questionId": 8,
     "id": 32
+  },
+  {
+    "label": "Oui",
+    "type": 1,
+    "correctAnswer": true,
+    "questionId": 1650919732998,
+    "id": 1650919733040
+  },
+  {
+    "label": "Oui",
+    "type": 1,
+    "correctAnswer": true,
+    "questionId": 1650919887580,
+    "id": 1650919887599
+  },
+  {
+    "label": "Oui",
+    "type": 1,
+    "correctAnswer": true,
+    "questionId": 1650920193517,
+    "id": 1650920193536
+  },
+  {
+    "label": "Oui",
+    "type": 1,
+    "correctAnswer": true,
+    "questionId": 1650920248689,
+    "id": 1650920248729
   }
 ]

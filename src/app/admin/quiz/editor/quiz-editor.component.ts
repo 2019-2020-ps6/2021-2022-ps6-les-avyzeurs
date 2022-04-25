@@ -54,11 +54,13 @@ export class QuizEditorComponent implements OnInit {
   }
 
   submit() {
+    let json = JSON.stringify(this.quiz);
     if(this.editing) {
 
     } else {
+      this.quizService.createQuiz(json)
     }
-    console.log(this.quiz)
+    console.log(JSON.parse(json))
   }
 
   addQuestion() {
