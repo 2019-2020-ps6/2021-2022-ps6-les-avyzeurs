@@ -1,6 +1,6 @@
 import {Quiz} from "../models/quiz.model";
 import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {Injectable} from "@angular/core";
 import {httpOptionsBase, quizzesApi, quizzesHistoryApi} from "../config";
 import {QuizHistory} from "../models/quizresult.model";
@@ -31,5 +31,10 @@ export class QuizService {
 
   saveResult(quiz: QuizHistory): void {
     this.http.post<Quiz>(quizzesHistoryApi, quiz, httpOptionsBase).subscribe(() => this.getQuizzesFromAPI());
+  }
+
+  createQuiz(name, image): Observable<number> {
+    const body = JSON.stringify(name, image);
+    return this.http.post<number>(quizzesApi + "/", body, httpOptionsBase)
   }
 }

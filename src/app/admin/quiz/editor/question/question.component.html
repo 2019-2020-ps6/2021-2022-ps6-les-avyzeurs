@@ -3,13 +3,13 @@
     <h2>Question {{this.id + 1}}</h2>
   </div>
   <div class="col-12 mb-1">
-    <input placeholder="Question" required type="text" value="{{question.question}}">
+    <input placeholder="Question" required type="text" value="{{question.question}}" [(ngModel)]="this.question.question">
   </div>
   <div class="col-12 mb-1">
-    <input placeholder="Image de la question" required type="text" value="{{question.image}}">
+    <input placeholder="Image de la question" required type="text" value="{{question.image}}" [(ngModel)]="this.question.image">
   </div>
   <div class="col-12">
-    <input placeholder="Vidéo de la question" required type="text" value="{{question.video}}">
+    <input placeholder="Vidéo de la question" required type="text" value="{{question.video}}" [(ngModel)]="this.question.video">
   </div>
 
   <ng-container *ngFor="let answer of question.answers; index as i">

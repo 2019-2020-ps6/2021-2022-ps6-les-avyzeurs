@@ -7,10 +7,10 @@
   </div>
   <form class="col-12">
     <div class="col-12 mb-1">
-      <input name="name" placeholder="Nom du quiz" required type="text" value="{{quiz.name}}">
+      <input name="name" placeholder="Nom du quiz" required type="text" value="{{quiz.name}}" [(ngModel)]="this.quiz.name">
     </div>
     <div class="col-12 mb-1">
-      <input name="image" placeholder="Lien de l'image du quiz" type="text" value="{{quiz.image}}">
+      <input name="image" placeholder="Lien de l'image du quiz" type="text" value="{{quiz.image}}" [(ngModel)]="this.quiz.image">
     </div>
 
     <ng-container *ngFor="let question of quiz.questions; index as i">
@@ -28,10 +28,10 @@
       <div class="col-6">
         <div *ngIf="editing; then saveQuiz else createQuiz"></div>
         <ng-template #saveQuiz>
-          <button class="btn-polyquizz input block green" type="submit">Sauvegarder</button>
+          <button class="btn-polyquizz input block green" (click)="submit()">Sauvegarder</button>
         </ng-template>
         <ng-template #createQuiz>
-          <button class="btn-polyquizz input block green" type="submit">Créer</button>
+          <button class="btn-polyquizz input block green" (click)="submit()">Créer</button>
         </ng-template>
       </div>
     </div>

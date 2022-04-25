@@ -47,9 +47,7 @@ router.delete('/:quizId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    console.log(req.body);
     const quiz = Quiz.create({...req.body})
-    console.log(quiz);
     res.status(201).json(quiz)
   } catch (err) {
     // @ts-ignore

@@ -53,12 +53,20 @@ export class QuizEditorComponent implements OnInit {
 
   }
 
-  onSubmit(data) {
+  submit() {
+    if(this.editing) {
+
+    } else {
+    }
     console.log(this.quiz)
   }
 
   addQuestion() {
     this.quiz.questions.push(new Question())
+  }
+
+  updateValue(value: any) {
+
   }
 }
 
