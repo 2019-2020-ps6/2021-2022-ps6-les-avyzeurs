@@ -18,6 +18,7 @@ export interface QuizHistory {
   quizId: number;
   profileId: number;
   answers: number[];
+  nbOfErrorDueToMovement: number;
 }
 
 export interface QuizProfileResult {
