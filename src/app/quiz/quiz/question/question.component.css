@@ -15,7 +15,7 @@
   min-width: 18rem;
   text-align: center;
   user-select: none;
-  display: inline-block;
+  display: flow-root;
   cursor: pointer;
 }
 .question .answer.selected {

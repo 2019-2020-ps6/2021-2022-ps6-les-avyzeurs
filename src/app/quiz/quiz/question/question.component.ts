@@ -1,6 +1,9 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Question} from "../../../../models/quiz.model";
 import {QuizComponent} from "../quiz.component";
+import {ProfileService} from "../../../../services/profile.service";
+import {Parameter, Profile} from "../../../../models/profile.model";
+import parametersHelper from "../../../../helpers/parametersHelper";
 
 @Component({
   selector: 'app-quiz-question', templateUrl: './question.component.html', styleUrls: ['./question.component.sass']
@@ -14,13 +17,28 @@ export class QuestionComponent implements OnInit {
 
   public answers = [];
   public selectedAnswer: number;
+  private profile: Profile;
 
-  constructor(@Inject(QuizComponent) private parentComponent: QuizComponent) {
+  constructor(@Inject(QuizComponent) private parentComponent: QuizComponent, public profileService: ProfileService) {
+    this.profileService.profileSelected$.subscribe((profile) => {
+      this.profile = profile;
+    });
   }
 
   ngOnInit(): void {
     this.shuffleArray(this.question.answers)
-    console.log(this.question.answers)
+    if (localStorage.getItem('currentSessionID')) {
+      const id = Number.parseInt(localStorage.getItem('currentSessionID'));
+      this.profileService.setSelectedProfile(id);
+    }
+  }
+
+  getParameter(type: string): Parameter {
+    return parametersHelper.getParameter(this.profile, type)
+  }
+
+  getClass(type: string): string {
+    return parametersHelper.getClass(this.getParameter(type))
   }
 
   shuffleArray = array => {

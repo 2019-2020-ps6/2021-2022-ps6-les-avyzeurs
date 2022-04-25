@@ -1,10 +1,11 @@
 <div class="flex lite-panel v-center">
   <div class="col-2"> #{{quiz.id}}</div>
-  <div class="col-6 flex v-center">
+  <div class="col-5 flex v-center">
     <img src="{{quiz.image}}" alt="{{quiz.name}}" class="head">
     {{quiz.name}}
   </div>
   <div class="col-2 center">{{quiz.questions.length}} questions</div>
+  <div class="col-1"><a class="btn-polyquizz small block green"><i class="fa-solid fa-clone"></i></a></div>
   <div class="col-1"><a class="btn-polyquizz small block" routerLink="/admin/quiz/{{quiz.id}}"><i class="fa-solid fa-pen-to-square"></i></a></div>
   <div class="col-1"><button class="btn-polyquizz small block red" (click)="delete()"><i class="fa-solid fa-trash"></i></button></div>
 </div>

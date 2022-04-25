@@ -670,6 +670,26 @@ hr {
   border-radius: 1px;
 }
 
+.p-8 {
+  padding: 8px !important;
+}
+
+.p-16 {
+  padding: 16px !important;
+}
+
+.p-32 {
+  padding: 32px !important;
+}
+
+.p-64 {
+  padding: 64px !important;
+}
+
+.p-128 {
+  padding: 128px !important;
+}
+
 .box-spacing-8 {
   margin: 8px;
 }
@@ -782,7 +802,7 @@ a {
   height: 100vh;
   background: rgba(0, 0, 0, 0.25);
   z-index: 1;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: ass ease 0.1s;
