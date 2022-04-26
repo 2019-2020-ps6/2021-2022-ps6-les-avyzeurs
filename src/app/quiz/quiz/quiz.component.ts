@@ -42,6 +42,15 @@ export class QuizComponent implements OnInit {
         this.saveQuizResult();
         this.router.navigate(["/quiz-result/1"]);
       }
+      if(!this.suddenPopupEnd && !this.suddenPopupNext){
+        if(this.currentQuestion + 1 >= this.quiz.questions.length) {
+          this.saveQuizResult();
+          this.router.navigate(["/quiz-result/1"]);
+        }
+        else {
+          this.goToNextQuestion();
+        }
+      }
     }
     if(event.key=="a" || event.key=="A"){
       if(this.suddenPopupNext){
