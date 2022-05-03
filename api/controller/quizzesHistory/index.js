@@ -20,8 +20,9 @@ router.get('/:quizHistoryId', (req, res) => {
     quizHistory.name = Quiz.getById(quizHistory.quizId).name
     quizHistory.image = Quiz.getById(quizHistory.quizId).image
     quizHistory.questions = Question.where("quizId", quizHistory.quizId, true)
+    quizHistory.answers = [];
     quizHistory.questions.forEach((question) => {
-      question.answers = filterAnswerHistoryForResult(req.params.quizHistoryId, question.id)
+      quizHistory.answers.push(filterAnswerHistoryForResult(req.params.quizHistoryId, question.id))
     })
     res.status(200).json(quizHistory)
   } catch (err) {

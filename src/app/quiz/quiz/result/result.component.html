@@ -3,6 +3,18 @@
   <div class="quiz-image" style="background-image: url('{{ quiz.image }}')"></div>
   <hr>
   <div class="col-md-12">
-    oui
+    <div class="flex" *ngFor="let question of quiz.questions; let i=index">
+      <div class="flex h-center my-2 question">
+      <div class="col-8" *ngIf="hasImage(question)">
+        <div class="image" style="background-image: url({{ question.image }})"></div>
+      </div>
+      <div class="col-12 center">
+        <h3 class="{{getClass('VISION_SCALE')}}">{{ question.question }} <small>ID#{{ question.id }}</small></h3>
+      </div>
+      </div>
+      <div class="col-12 center" *ngIf="isTrue(question, i)">
+        Bonne réponse
+      </div>
+    </div>
   </div>
 </div>
