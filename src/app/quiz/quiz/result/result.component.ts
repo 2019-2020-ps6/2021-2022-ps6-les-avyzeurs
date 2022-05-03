@@ -53,4 +53,8 @@ export class ResultComponent implements OnInit {
     //console.log(this.quiz.answers[i]);
     return (question.answers.find(answer => answer.id == this.quiz.answers[i][0].answerId).correctAnswer);
   }
+
+  getAnswer(question: Question, i: number) {
+    return question.answers.find(answer => answer.id == this.quiz.answers[i][0].answerId).label;
+  }
 }

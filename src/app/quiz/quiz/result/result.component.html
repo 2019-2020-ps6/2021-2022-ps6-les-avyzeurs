@@ -11,10 +11,18 @@
       <div class="col-12 center">
         <h3 class="{{getClass('VISION_SCALE')}}">{{ question.question }} <small>ID#{{ question.id }}</small></h3>
       </div>
+      <div class="col-12 center">
+        <h3 class="{{getClass('VISION_SCALE')}}">Votre réponse : {{getAnswer(question, i)}}</h3>
       </div>
-      <div class="col-12 center" *ngIf="isTrue(question, i)">
-        Bonne réponse
       </div>
+      <div class="col-12 center" *ngIf="isTrue(question, i); else elseBlock">
+        <h3 class="{{getClass('VISION_SCALE')}}">Bonne réponse</h3>
+      </div>
+      <ng-template #elseBlock>
+        <div class="col-12 center">
+          <h3 class="{{getClass('VISION_SCALE')}}">Mauvaise réponse</h3>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
