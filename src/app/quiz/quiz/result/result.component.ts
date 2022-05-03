@@ -57,4 +57,8 @@ export class ResultComponent implements OnInit {
   getAnswer(question: Question, i: number) {
     return question.answers.find(answer => answer.id == this.quiz.answers[i][0].answerId).label;
   }
+
+  rightAnswer(question: Question) {
+    return question.answers.find(answer => answer.correctAnswer).label;
+  }
 }

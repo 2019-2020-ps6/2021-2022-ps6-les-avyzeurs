@@ -20,9 +20,10 @@
       </div>
       <ng-template #elseBlock>
         <div class="col-12 center">
-          <h3 class="{{getClass('VISION_SCALE')}}">Mauvaise réponse</h3>
+          <h3 class="{{getClass('VISION_SCALE')}}">Mauvaise réponse, la bonne réponse était : {{rightAnswer(question)}}</h3>
         </div>
       </ng-template>
+      <hr *ngIf="i < quiz.questions.length - 1">
     </div>
   </div>
 </div>
