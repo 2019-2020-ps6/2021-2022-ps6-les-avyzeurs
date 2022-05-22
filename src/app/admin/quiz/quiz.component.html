@@ -1,7 +1,8 @@
 <app-admin-header></app-admin-header>
 <div class="flex h-center">
-  <ng-container *ngFor="let quiz of quizList">
-    <app-component-admin-quiz [quiz]="quiz" class="col-12"></app-component-admin-quiz>
+  <ng-container *ngFor="let quiz of quizList; let index = index">
+      <app-component-admin-quiz [quiz]="quiz" [index]="index+1" class="col-12"></app-component-admin-quiz>
   </ng-container>
-  <a class="btn-polyquizz" routerLink="/admin/quiz/new">Créer un quiz</a>
+  <a class="btn-polyquizz" routerLink="/admin/quiz/new">Créer un Quiz</a>
 </div>
+

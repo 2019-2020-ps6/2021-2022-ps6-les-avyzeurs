@@ -1,0 +1,12 @@
+<a class="flex lite-panel v-center" routerLink="/admin/profile/{{this.profile.id}}">
+  <div class="col-2">
+    #{{index}}
+  </div>
+  <div class="col-8">
+    {{getFullName()}}
+  </div>
+  <div class="col-2">
+    <button class="btn-polyquizz small block red" (click)="delete()"><i class="fa-solid fa-trash"></i></button>
+  </div>
+</a>
+

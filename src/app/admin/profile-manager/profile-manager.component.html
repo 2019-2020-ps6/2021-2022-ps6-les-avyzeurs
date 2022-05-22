@@ -1,11 +1,13 @@
 <app-admin-header></app-admin-header>
 <div>
-  <div class="col-12 my-2">
-    <div class="flex h-spacing">
-      <div *ngFor="let profile of profileList" class="col-3">
-        <app-components-profile [profile]="profile"></app-components-profile>
+    <div class="flex h-center">
+      <div *ngFor="let profile of profileList; let index = index" class="col-8">
+        <app-admin-light-profile [profile]="profile" [index]="index+1"> </app-admin-light-profile>
       </div>
     </div>
+  <div class="flex h-center">
+  <a class="btn-polyquizz" routerLink="/admin/profile/new">Créer un Profile</a>
   </div>
 </div>
+
 

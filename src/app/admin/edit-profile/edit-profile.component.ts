@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import parametersHelper from "../../../helpers/parametersHelper";
-import {Profile} from "../../../models/profile.model";
+import {Parameter, Profile} from "../../../models/profile.model";
 import {ActivatedRoute} from "@angular/router";
 import {ProfileService} from "../../../services/profile.service";
-import {QuizProfileResult} from "../../../models/quizresult.model";
+import {ParameterService} from "../../../services/parameter.service";
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,16 +13,26 @@ import {QuizProfileResult} from "../../../models/quizresult.model";
 export class EditProfileComponent implements OnInit {
 
   public profile: Profile;
-
-  constructor(private route: ActivatedRoute, private profileService: ProfileService) {
+  public editing = false;
+  public params: Parameter[];
+  constructor(private route: ActivatedRoute, private profileService: ProfileService, private parameterService: ParameterService) {
     this.profileService.profileSelected$.subscribe((profile) => {
       this.profile = profile;
     });
+
+    this.parameterService.parameters$.subscribe((params) =>{
+      this.params = params;
+    } )
   }
 
   ngOnInit(): void {
-  let id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'))
-  this.profileService.setSelectedProfile(id);
+  if (this.route.snapshot.paramMap.get('id') !== 'new') this.editing = true;
+    if (this.editing) {
+      let id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'))
+      this.profileService.setSelectedProfile(id);
+    }
   }
+
+
 
 }

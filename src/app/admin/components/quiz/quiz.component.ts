@@ -7,6 +7,8 @@ import {QuizService} from "../../../../services/quiz.service";
 })
 export class AdminQuizComponent implements OnInit {
   @Input() quiz: Quiz;
+  @Input() index: any;
+
 
   constructor(public quizService: QuizService) {
   }
