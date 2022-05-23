@@ -53,44 +53,29 @@ router.delete('/:quizId', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
+
   try {
-    console.log(req.body)
-    const quiz = Quiz.create({
-      "name": req.body['name'],
-      "image": req.body['image']
-    })
-    for (let i = 0; i < req.body['questions'].length; i++) {
-      let q = req.body['questions'][i]
-      const question = Question.create({
-        "question": q['question'],
-        "image": q['image'],
-        "video": q['video'],
-        "quizId": quiz.id
+    const id = Quiz.create({
+      "name": req.body.name, "image": req.body.image
+    }).id
+    let q;
+    for (let question of req.body.questions) {
+      q = Question.create({
+        "question": question.question, "image": question.image, "video": question.video, "quizId": id
       })
-      for (let j = 0; j < q['answers'].length; j++) {
-        let a = q['answers'][j]
+      for (let answer of question.answers) {
         Answer.create({
-          "label": a['label'],
-          "type": Number.parseInt(a['type']),
-          "correctAnswer": !!a['correctAnswer'],
-          "questionId": question.id
+          "label": answer.label, "type": answer.type, "correctAnswer": !!answer.correctAnswer, "questionId": q.id
         })
       }
     }
-    //const quiz = Quiz.create({...req.body})
-    res.status(201).json(req.body)
   } catch (err) {
-    // @ts-ignore
-    if (err.name === 'ValidationError') {
-      // @ts-ignore
-      res.status(400).json(err.extra)
-    } else {
-      res.status(500).json(err)
-    }
+    if (err.name === 'ValidationError') res.status(400).json(err.extra); else res.status(500).json(err)
   }
 })
 
 router.put('/:quizId', (req, res) => {
+  console.log("put")
   try {
     res.status(200).json(Quiz.update(req.params.quizId, req.body))
   } catch (err) {
