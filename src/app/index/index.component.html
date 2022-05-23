@@ -1,33 +1,17 @@
-<div class="flex">
+<div class="flex h-center">
   <div class="col-12 center">
     <h1>Sélectionnez votre profil:</h1>
-    <div class="flex h-center">
-      <div class="col-8">
-        <input name="name" placeholder="Cherchez votre nom ici" type="text">
-      </div>
-    </div>
   </div>
   <div class="col-12 my-2">
     <div class="flex h-spacing">
-      <div *ngFor="let profile of profileList" class="col-3">
+      <div *ngFor="let profile of profileList" class="col-2">
         <app-components-profile [profile]="profile"></app-components-profile>
       </div>
     </div>
   </div>
-  <div class="col-12 center">
+  <div class="col-8 center">
     <hr>
     <h1 class="mt-2">Vous ne trouvez pas votre profil?</h1>
-    <!--<div class="flex h-center">
-      <div class="col-3">
-        <input name="name" placeholder="Nom" type="text">
-      </div>
-      <div class="col-3">
-        <input name="name" placeholder="Prénom" type="text">
-      </div>
-      <div class="col-2">
-        <button class="btn-polyquizz input block">Créer</button>
-      </div>
-    </div>-->
     <form class="col-12" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
       <div class="col-12 mb-1">
         <input formControlName="last_name" placeholder="Nom" type="text">

@@ -13,9 +13,13 @@
       <input name="image" placeholder="Lien de l'image du quiz" type="text" value="{{quiz.image}}" [(ngModel)]="this.quiz.image">
     </div>
 
-    <ng-container *ngFor="let question of quiz.questions; index as i">
-      <app-admin-quiz-editor-question [id]="i" [question]="question"></app-admin-quiz-editor-question>
-    </ng-container>
+    <div class="flex">
+      <ng-container *ngFor="let question of quiz.questions; index as i">
+        <div class="col-6">
+          <app-admin-quiz-editor-question [id]="i" [question]="question"></app-admin-quiz-editor-question>
+        </div>
+      </ng-container>
+    </div>
 
     <div class="col-12">
       <a (click)="addQuestion()" class="btn-polyquizz input block">Ajouter une question</a>

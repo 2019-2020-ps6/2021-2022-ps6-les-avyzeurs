@@ -6,7 +6,7 @@ input-group
 
 input[type=text], input[type=password]
   width: 100%
-  padding: 12px
+  padding: 8px
   font-size: 16px
   border-radius: 0.5rem
   background: transparent
@@ -14,9 +14,14 @@ input[type=text], input[type=password]
   transition: all ease 0.1s
   color: $text
   font-family: $redhatdisplay
+  background: $background-1
 
+  &:required
+    border-right: 0.5rem solid $red
   &:hover, &:focus
     border: 2px solid $text
+    &:required
+      border-right: 0.5rem solid $red
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked
@@ -24,3 +29,7 @@ input[type=text], input[type=password]
   height: 1rem
   background: rgba(0, 0, 0, 0.25)
   border: 0
+
+label.checkbox
+  display: inline-flex
+  user-select: none

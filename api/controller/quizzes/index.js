@@ -52,30 +52,20 @@ router.delete('/:quizId', (req, res) => {
   }
 })
 
-router.post('/', (req, res) => {
-  try {
-    const quiz = Quiz.create({...req.body})
-    res.status(201).json(quiz)
-  } catch (err) {
-    // @ts-ignore
-    if (err.name === 'ValidationError') {
-      // @ts-ignore
-      res.status(400).json(err.extra)
-    } else {
-      res.status(500).json(err)
-    }
-  }
-})
-
 router.post('/new', (req, res) => {
   try {
+    console.log(req.body)
     const quiz = Quiz.create({
-      "name": req.body['name'], "image": req.body['image']
+      "name": req.body['name'],
+      "image": req.body['image']
     })
     for (let i = 0; i < req.body['questions'].length; i++) {
       let q = req.body['questions'][i]
       const question = Question.create({
-        "question": q['question'], "image": q['image'], "video": q['video'], "quizId": quiz.id
+        "question": q['question'],
+        "image": q['image'],
+        "video": q['video'],
+        "quizId": quiz.id
       })
       for (let j = 0; j < q['answers'].length; j++) {
         let a = q['answers'][j]

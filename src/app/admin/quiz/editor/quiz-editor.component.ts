@@ -11,6 +11,7 @@ export class QuizEditorComponent implements OnInit {
   editing: boolean = false
   realQuiz: ModelQuiz
   quiz = new Quiz()
+  id: number;
 
   /**quizForm = this.fb.group({
     name: ['', Validators.required],
@@ -19,7 +20,7 @@ export class QuizEditorComponent implements OnInit {
   constructor(private route: ActivatedRoute, private quizService: QuizService, private router: Router) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.realQuiz = quiz;
-      if(this.editing) {
+      if (this.editing) {
         this.quiz.name = this.realQuiz.name;
         this.quiz.image = this.realQuiz.image;
         for (let question of this.realQuiz.questions) {
@@ -46,21 +47,21 @@ export class QuizEditorComponent implements OnInit {
     if (this.route.snapshot.paramMap.get('id') !== 'new') this.editing = true;
 
     if (this.editing) {
-      let id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'))
-      this.quizService.setSelectedQuiz(id);
+      this.id = Number.parseInt(<string>this.route.snapshot.paramMap.get('id'))
+      this.quizService.setSelectedQuiz(this.id);
     }
 
 
   }
 
   submit() {
-    let json = JSON.stringify(this.quiz);
-    if(this.editing) {
-
+    if(this.quiz.isValid()) {
+      if (this.editing) this.quizService.deleteQuiz(this.id)
+      this.quizService.createQuiz(JSON.stringify(this.quiz))
+      this.router.navigate(['/admin/quiz']);
     } else {
-      this.quizService.createQuiz(json)
+      alert("oui")
     }
-    this.router.navigate(['/admin/quiz']);
   }
 
   addQuestion() {
@@ -70,22 +71,44 @@ export class QuizEditorComponent implements OnInit {
 }
 
 export class Quiz {
-  name: string
-  image: string
+  name: string = ""
+  image: string = ""
   questions: Question[] = []
+
+
+  constructor() {
+    this.questions.length = 0
+  }
+
+  isValid(): boolean {
+    console.log(this.questions.length)
+    if (this.name.length == 0 || this.questions.length == 0) return false
+    for (let question of this.questions) if (!question.isValid()) return false
+    return true
+  }
 }
 
 export class Question {
   id: number
-  question: string
-  image: string
-  video: string
+  question: string = ""
+  image: string = ""
+  video: string = ""
   answers: Answer[] = []
+
+  isValid(): boolean {
+    if (this.question.length == 0 || this.answers.length == 0) return false
+    for (let answer of this.answers) if (!answer.isValid()) return false
+    return true
+  }
 }
 
 export class Answer {
   id: number
-  type: number
-  label: string
-  correctAnswer: boolean
+  type: number = 1
+  label: string = ""
+  correctAnswer: boolean = false
+
+  isValid(): boolean {
+    return this.type != undefined || this.label !== "";
+  }
 }

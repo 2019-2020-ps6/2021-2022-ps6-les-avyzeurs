@@ -4,57 +4,19 @@
 
 @import "variables"
 
-@mixin respond-to($breakpoint)
-  @if map-has-key($breakpoints, $breakpoint)
-    @media #{inspect(map-get($breakpoints, $breakpoint))}
-      @content
-  @else
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Available breakpoints are: #{map-keys($breakpoints)}."
-
 body
   margin: 0
 
 *
   box-sizing: border-box
 
-// MARGIN
-@for $i from 0 through 4
-  .m-#{$i}
-    margin: #{$i}rem #{$i}rem #{$i}rem #{$i}rem !important
-  .mt-#{$i}
-    margin-top: #{$i}rem !important
-  .mb-#{$i}
-    margin-bottom: #{$i}rem !important
-  .mr-#{$i}
-    margin-right: #{$i}rem !important
-  .ml-#{$i}
-    margin-left: #{$i}rem !important
-  .my-#{$i}
-    margin-top: #{$i}rem !important
-    margin-bottom: #{$i}rem !important
-  .mx-#{$i}
-    margin-right: #{$i}rem !important
-    margin-left: #{$i}rem !important
+@media screen and (min-width: 1921px)
+  html
+    -moz-transform: scale(1.33, 1.33)
+    zoom: 1.33
+    zoom: 133%
 
-// PADDING
-@for $i from 0 through 4
-  .p-#{$i}
-    padding: #{$i}rem #{$i}rem #{$i}rem #{$i}rem !important
-  .pt-#{$i}
-    padding-top: #{$i}rem !important
-  .pb-#{$i}
-    padding-bottom: #{$i}rem !important
-  .pr-#{$i}
-    padding-right: #{$i}rem !important
-  .pl-#{$i}
-    padding-left: #{$i}rem !important
-  .py-#{$i}
-    padding-top: #{$i}rem !important
-    padding-bottom: #{$i}rem !important
-  .px-#{$i}
-    padding-right: #{$i}rem !important
-    padding-left: #{$i}rem !important
-
+@import "utils"
 
 @import "flex"
 
@@ -89,11 +51,21 @@ a.lite-panel
 
 .panel
   background: $background-2
-  padding: 1rem
-  border-radius: 2rem
+  padding: 0.8rem
+  border-radius: 0.5rem
 
   .panel-head
     text-align: center
+    h2
+      font-size: 1.75rem
+      padding: 0
+    h3
+      font-size: 1.5rem
+      padding: 0
+
+  &.collapsed
+    .panel-body
+      display: none
 
   &.darker
     background: darken($background-2, 15%)
@@ -140,47 +112,20 @@ hr
   border: 0
   border-radius: 1px
 
-
-$spacings: 8, 16, 32, 64, 128
-$sizings: 8, 16, 32, 64, 128
-
-@each $size in $sizings
-  .p-#{$size}
-    padding: #{$size}px!important
-
-@each $spacing in $spacings
-  .box-spacing-#{$spacing}
-    margin: #{$spacing}px
-
-  .col-12.box-spacing-#{$spacing}
-    margin-left: 0
-    margin-right: 0
-
-$sizes: 16, 24, 32, 40, 48, 56, 64
-
-@each $size in $sizes
-  .font-size-#{$size}
-    font-size: #{$size}px !important
-
 .container
+  min-width: 110rem
   width: 100%
   margin: 0 auto
   font-family: $redhatdisplay
-  @include respond-to('large')
-    max-width: $large
-    padding: 0 $large / 20
-  @include respond-to('medium')
-    max-width: $medium
-    padding: 0 $medium / 25
-  @include respond-to('small')
-    max-width: $small
-    padding: 0 $small / 30
 
 a
   text-decoration: none
 
 .uppercase
   text-transform: uppercase
+
+.block
+  display: inline-block
 
 .modal
   display: none
@@ -207,15 +152,9 @@ a
     display: flex
     flex-direction: column
     align-items: center
-    @include respond-to('large')
-      max-width: $large
-    @include respond-to('medium')
-      max-width: $medium
-    @include respond-to('small')
-      max-width: $small
+
 
     &.small
-      max-width: $small
 
       .close-box
         display: flex
@@ -228,5 +167,23 @@ a
       .actions
         display: flex
 
+@mixin respond-to($breakpoint)
+  @if map-has-key($breakpoints, $breakpoint)
+    @media #{inspect(map-get($breakpoints, $breakpoint))}
+      @content
+  @else
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Available breakpoints are: #{map-keys($breakpoints)}."
 
-
+.container
+  width: 100%
+  margin: 0 auto
+  font-family: $redhatdisplay
+  @include respond-to('large')
+    max-width: $large
+    padding: 0 $large / 20
+  @include respond-to('medium')
+    max-width: $medium
+    padding: 0 $medium / 25
+  @include respond-to('small')
+    max-width: $small
+    padding: 0 $small / 30

@@ -9,6 +9,13 @@ body {
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 1921px) {
+  html {
+    -moz-transform: scale(1.33, 1.33);
+    zoom: 1.33;
+    zoom: 133%;
+  }
+}
 .m-0 {
   margin: 0rem 0rem 0rem 0rem !important;
 }
@@ -309,6 +316,99 @@ body {
   padding-left: 4rem !important;
 }
 
+.p-8 {
+  padding: 8px !important;
+}
+
+.p-16 {
+  padding: 16px !important;
+}
+
+.p-32 {
+  padding: 32px !important;
+}
+
+.p-64 {
+  padding: 64px !important;
+}
+
+.p-128 {
+  padding: 128px !important;
+}
+
+.box-spacing-8 {
+  margin: 8px;
+}
+
+.col-12.box-spacing-8 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.box-spacing-16 {
+  margin: 16px;
+}
+
+.col-12.box-spacing-16 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.box-spacing-32 {
+  margin: 32px;
+}
+
+.col-12.box-spacing-32 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.box-spacing-64 {
+  margin: 64px;
+}
+
+.col-12.box-spacing-64 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.box-spacing-128 {
+  margin: 128px;
+}
+
+.col-12.box-spacing-128 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.font-size-16 {
+  font-size: 16px !important;
+}
+
+.font-size-24 {
+  font-size: 24px !important;
+}
+
+.font-size-32 {
+  font-size: 32px !important;
+}
+
+.font-size-40 {
+  font-size: 40px !important;
+}
+
+.font-size-48 {
+  font-size: 48px !important;
+}
+
+.font-size-56 {
+  font-size: 56px !important;
+}
+
+.font-size-64 {
+  font-size: 64px !important;
+}
+
 .flex {
   display: flex;
   width: 100%;
@@ -440,7 +540,7 @@ input-group input {
 
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   font-size: 16px;
   border-radius: 0.5rem;
   background: transparent;
@@ -448,9 +548,16 @@ input[type=text], input[type=password] {
   transition: all ease 0.1s;
   color: #1E1E23;
   font-family: "Red Hat Display", sans-serif;
+  background: #f7fafa;
+}
+input[type=text]:required, input[type=password]:required {
+  border-right: 0.5rem solid #D72D2D;
 }
 input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, input[type=password]:focus {
   border: 2px solid #1E1E23;
+}
+input[type=text]:hover:required, input[type=text]:focus:required, input[type=password]:hover:required, input[type=password]:focus:required {
+  border-right: 0.5rem solid #D72D2D;
 }
 
 [type=checkbox]:not(:checked),
@@ -459,6 +566,11 @@ input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, inpu
   height: 1rem;
   background: rgba(0, 0, 0, 0.25);
   border: 0;
+}
+
+label.checkbox {
+  display: inline-flex;
+  user-select: none;
 }
 
 .btn-polyquizz {
@@ -612,11 +724,22 @@ a.lite-panel:hover {
 
 .panel {
   background: #ececec;
-  padding: 1rem;
-  border-radius: 2rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
 }
 .panel .panel-head {
   text-align: center;
+}
+.panel .panel-head h2 {
+  font-size: 1.75rem;
+  padding: 0;
+}
+.panel .panel-head h3 {
+  font-size: 1.5rem;
+  padding: 0;
+}
+.panel.collapsed .panel-body {
+  display: none;
 }
 .panel.darker {
   background: #c6c6c6;
@@ -670,121 +793,11 @@ hr {
   border-radius: 1px;
 }
 
-.p-8 {
-  padding: 8px !important;
-}
-
-.p-16 {
-  padding: 16px !important;
-}
-
-.p-32 {
-  padding: 32px !important;
-}
-
-.p-64 {
-  padding: 64px !important;
-}
-
-.p-128 {
-  padding: 128px !important;
-}
-
-.box-spacing-8 {
-  margin: 8px;
-}
-
-.col-12.box-spacing-8 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.box-spacing-16 {
-  margin: 16px;
-}
-
-.col-12.box-spacing-16 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.box-spacing-32 {
-  margin: 32px;
-}
-
-.col-12.box-spacing-32 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.box-spacing-64 {
-  margin: 64px;
-}
-
-.col-12.box-spacing-64 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.box-spacing-128 {
-  margin: 128px;
-}
-
-.col-12.box-spacing-128 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.font-size-16 {
-  font-size: 16px !important;
-}
-
-.font-size-24 {
-  font-size: 24px !important;
-}
-
-.font-size-32 {
-  font-size: 32px !important;
-}
-
-.font-size-40 {
-  font-size: 40px !important;
-}
-
-.font-size-48 {
-  font-size: 48px !important;
-}
-
-.font-size-56 {
-  font-size: 56px !important;
-}
-
-.font-size-64 {
-  font-size: 64px !important;
-}
-
 .container {
+  min-width: 110rem;
   width: 100%;
   margin: 0 auto;
   font-family: "Red Hat Display", sans-serif;
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-    padding: 0 60px;
-  }
-}
-@media (max-width: 1199px) {
-  .container {
-    max-width: 992px;
-    padding: 0 39.68px;
-  }
-}
-@media (max-width: 991px) {
-  .container {
-    max-width: 767px;
-    padding: 0 25.5666666667px;
-  }
 }
 
 a {
@@ -793,6 +806,10 @@ a {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.block {
+  display: inline-block;
 }
 
 .modal {
@@ -821,24 +838,6 @@ a {
   flex-direction: column;
   align-items: center;
 }
-@media (min-width: 1200px) {
-  .modal .popup {
-    max-width: 1200px;
-  }
-}
-@media (max-width: 1199px) {
-  .modal .popup {
-    max-width: 992px;
-  }
-}
-@media (max-width: 991px) {
-  .modal .popup {
-    max-width: 767px;
-  }
-}
-.modal .popup.small {
-  max-width: 767px;
-}
 .modal .popup.small .close-box {
   display: flex;
   width: 100%;
@@ -849,6 +848,30 @@ a {
 }
 .modal .popup.small .actions {
   display: flex;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Red Hat Display", sans-serif;
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 60px;
+  }
+}
+@media (max-width: 1199px) {
+  .container {
+    max-width: 992px;
+    padding: 0 39.68px;
+  }
+}
+@media (max-width: 991px) {
+  .container {
+    max-width: 767px;
+    padding: 0 25.5666666667px;
+  }
 }
 
 /*# sourceMappingURL=global.css.map */
