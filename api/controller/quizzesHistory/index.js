@@ -59,7 +59,7 @@ function filterAnswerHistoryForResult(quizHistoryId, questionId) {
 router.post('/', (req, res) => {
   try {
     let quizHistoryValue = {
-      "quizId": req.body.quizId, "profileId": req.body.profileId,
+      "quizId": req.body.quizId, "profileId": req.body.profileId,"nbGestes":req.body.nbOfErrorDueToMovement
     }
     const quizHistory = QuizHistory.create(quizHistoryValue)
     req.body.answers.forEach((value) => {

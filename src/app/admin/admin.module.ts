@@ -15,10 +15,12 @@ import {QuizEditorComponent} from './quiz/editor/quiz-editor.component';
 import { QuestionComponent } from './quiz/editor/question/question.component';
 import { AnswerComponent } from './quiz/editor/answer/answer.component';
 import { LightProfileComponent } from './light-profile/light-profile.component'
+import {HistoryComponentAdmin} from "./edit-profile/history/admin.history.component";
+import {QuizComponentAdmin} from "./edit-profile/history/quiz/admin.quiz.component";
 
 
 @NgModule({
-  declarations: [LogInComponent, ProfileManagerComponent, EditProfileComponent, HeaderComponent, EditProfileComponent, QuizComponent, AdminQuizComponent, QuizEditorComponent, QuestionComponent, AnswerComponent, LightProfileComponent],
+  declarations: [LogInComponent, ProfileManagerComponent, EditProfileComponent, HeaderComponent, EditProfileComponent, QuizComponent, AdminQuizComponent, QuizEditorComponent, QuestionComponent, AnswerComponent, LightProfileComponent, HistoryComponentAdmin, QuizComponentAdmin],
   imports: [
     CommonModule,
     AdminRoutingModule,

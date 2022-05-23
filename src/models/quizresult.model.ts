@@ -32,4 +32,5 @@ export interface QuizProfileResult {
   name: string;
   score: number;
   nbQuestions: number;
+  nbGestes: number;
 }

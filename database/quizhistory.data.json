@@ -2,6 +2,15 @@
   {
     "quizId": 1648542010431,
     "profileId": 1649004020542,
-    "id": 1651559573894
+    "id": 1651559573894,
+    "name": "Les voitures historiques",
+    "score": 2,
+    "nbQuestions": 8
+  },
+  {
+    "quizId": 1648542010431,
+    "profileId": 1649004020542,
+    "nbGestes": 1,
+    "id": 1653316449757
   }
 ]
