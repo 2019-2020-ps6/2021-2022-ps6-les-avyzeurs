@@ -1,34 +1,67 @@
 <app-admin-header></app-admin-header>
-<h3 class="center">Edition du profil de {{profile.firstname}} {{profile.name}}</h3>
+
+
+<div *ngIf="editing; then editProfile else newProfile"></div>
+<ng-template #newProfile><h3 class="center">Nouveau Profile</h3></ng-template>
+<ng-template #editProfile><h3 class="center">Edition du Profile de {{profile.firstname}} {{profile.name}}</h3>
+</ng-template>
+
 <div class="col-12 center">
   <hr>
   <div class="flex h-center">
     <div class="profile-header">
       <div class="col-3">
-        <div class="image" style="width:100px; height:100px; background-image: url({{profile.image}})"></div>
+        <div *ngIf="editing; then editProfile2"></div>
+        <ng-template #editProfile2>
+          <div class="image" style="width:100px; height:100px; background-image: url({{profile.image}})"></div>
+        </ng-template>
       </div>
     </div>
-    <div class="col-3">
-      <input name="name" placeholder="Latope" type="text">
-    </div>
-    <div class="col-3">
-      <input name="name" placeholder="Réné" type="text">
-    </div>
+
+    <div *ngIf="editing; then editProfile3 else newProfile3"></div>
+    <ng-template #editProfile3>
+      <div class="col-3">
+        <input name="name" placeholder="{{this.profile.name}}" type="text">
+      </div>
+      <div class="col-3">
+        <input name="name" placeholder="{{this.profile.firstname}}" type="text">
+      </div>
+    </ng-template>
+
+    <ng-template #newProfile3>
+      <div class="col-3">
+        <input name="name" placeholder="Nom" type="text">
+      </div>
+      <div class="col-3">
+        <input name="name" placeholder="Prénom" type="text">
+      </div>
+    </ng-template>
+
     <div class="col-6">
       <input type="file">
     </div>
   </div>
 
-
   <hr>
+  <div *ngIf="editing; then editProfile4"></div>
+  <ng-template #editProfile4>
+    <app-profile-history></app-profile-history>
+    <hr>
+  </ng-template>
 
-  <app-profile-history></app-profile-history>
-
-  <hr>
   <div class="flex">
-    <div *ngFor="let parameter of profile.parameters" class="col-6 mb-2">
+    <div *ngFor="let parameter of params | slice:0:4" class="col-6 mb-2">
       <app-profile-parameter [parameter]="parameter"></app-profile-parameter>
     </div>
   </div>
+
+  <div *ngIf="editing; then editProfile5 else createProfil5"></div>
+  <ng-template #editProfile5>
+    <button class="btn-polyquizz input ">Modifier ce profil </button>
+  </ng-template>
+
+  <ng-template #createProfil5>
+    <button class="btn-polyquizz input ">Créer ce profil</button>
+  </ng-template>
 
 </div>

@@ -13,18 +13,20 @@ import {QuizComponent} from './quiz/quiz.component';
 import {AdminQuizComponent} from './components/quiz/quiz.component';
 import {QuizEditorComponent} from './quiz/editor/quiz-editor.component';
 import { QuestionComponent } from './quiz/editor/question/question.component';
-import { AnswerComponent } from './quiz/editor/answer/answer.component'
+import { AnswerComponent } from './quiz/editor/answer/answer.component';
+import { LightProfileComponent } from './light-profile/light-profile.component'
 
 
 @NgModule({
-  declarations: [LogInComponent, ProfileManagerComponent, EditProfileComponent, HeaderComponent, EditProfileComponent, QuizComponent, AdminQuizComponent, QuizEditorComponent, QuestionComponent, AnswerComponent],
+  declarations: [LogInComponent, ProfileManagerComponent, EditProfileComponent, HeaderComponent, EditProfileComponent, QuizComponent, AdminQuizComponent, QuizEditorComponent, QuestionComponent, AnswerComponent, LightProfileComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
-    ProfileModule
+    ProfileModule,
+
   ]
 })
 export class AdminModule {

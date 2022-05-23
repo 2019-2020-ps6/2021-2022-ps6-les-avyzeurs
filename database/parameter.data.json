@@ -54,5 +54,257 @@
     "isEnabled": true,
     "profileId": 1650353347354,
     "id": 1650353347475
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908013231,
+    "id": 1650908013246
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908013231,
+    "id": 1650908013260
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908013231,
+    "id": 1650908013276
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908013231,
+    "id": 1650908013290
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908023076,
+    "id": 1650908023090
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908023076,
+    "id": 1650908023103
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908023076,
+    "id": 1650908023118
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908023076,
+    "id": 1650908023131
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908024070,
+    "id": 1650908024082
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908024070,
+    "id": 1650908024095
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908024070,
+    "id": 1650908024109
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908024070,
+    "id": 1650908024127
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908024590,
+    "id": 1650908024602
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908024590,
+    "id": 1650908024615
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908024590,
+    "id": 1650908024630
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908024590,
+    "id": 1650908024643
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908025023,
+    "id": 1650908025036
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908025023,
+    "id": 1650908025050
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908025023,
+    "id": 1650908025063
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908025023,
+    "id": 1650908025077
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908032131,
+    "id": 1650908032145
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032131,
+    "id": 1650908032158
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032131,
+    "id": 1650908032178
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032131,
+    "id": 1650908032196
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908032310,
+    "id": 1650908032323
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032310,
+    "id": 1650908032336
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032310,
+    "id": 1650908032348
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032310,
+    "id": 1650908032362
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908032638,
+    "id": 1650908032652
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032638,
+    "id": 1650908032666
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032638,
+    "id": 1650908032680
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032638,
+    "id": 1650908032694
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1650908032791,
+    "id": 1650908032803
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032791,
+    "id": 1650908032817
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032791,
+    "id": 1650908032830
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1650908032791,
+    "id": 1650908032842
   }
 ]

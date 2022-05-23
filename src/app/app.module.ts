@@ -12,6 +12,7 @@ import {ProfileModule} from "./profile/profile.module";
 import {AdminModule} from "./admin/admin.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [AppComponent, IndexComponent],
     imports: [BrowserModule, appRoutingModule, ComponentsModule, HttpClientModule, QuizModule, ProfileModule, AdminModule, FormsModule, ReactiveFormsModule],
