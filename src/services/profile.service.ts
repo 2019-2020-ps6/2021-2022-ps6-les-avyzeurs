@@ -35,5 +35,9 @@ export class ProfileService {
   addProfile(profile: Profile): void {
     this.http.post<Profile>(profilesApi, {name: profile.name, firstname: profile.firstname}, httpOptionsBase).subscribe(() => this.getProfilesFromApi());
   }
+  
+  deleteProfile(profileId: number) : void {
+      this.http.delete<Profile>(profilesApi + "/" + profileId).subscribe(() => this.getProfilesFromApi())
+  }
 
 }
