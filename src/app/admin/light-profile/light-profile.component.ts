@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Profile} from "../../../models/profile.model";
-import {QuizService} from "../../../services/quiz.service";
+import {ProfileService} from "../../../services/profile.service";
+
 
 
 @Component({
@@ -10,16 +11,17 @@ import {QuizService} from "../../../services/quiz.service";
 })
 export class LightProfileComponent implements OnInit {
   @Input() profile : Profile;
-  @Input() index : any;
+  @Input() index : number;
 
 
-  constructor(public quizService: QuizService) { }
+  constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void {
   }
 
-  delete() {
-    this.quizService.deleteQuiz(this.profile.id)
+  delete(e) {
+    this.profileService.deleteProfile(this.profile.id);
+    e.stopPropagation();
   }
 
   getFullName(){
