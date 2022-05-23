@@ -23,7 +23,10 @@ export class LogInComponent implements OnInit {
   constructor(private router: Router) {}
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+     if(localStorage.getItem("isLoggedAsAdmin"))
+       this.router.navigate(['/admin/profile'])
+  }
 
   onSubmit(data) {
     let credentialValid = false;
