@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Profile} from "../../../models/profile.model";
+import {Parameter, Profile} from "../../../models/profile.model";
 import {ActivatedRoute} from "@angular/router";
 import {ProfileService} from "../../../services/profile.service";
+import parametersHelper from "../../../helpers/parametersHelper";
 
 @Component({
   selector: 'app-profile-header', templateUrl: './header.component.html', styleUrls: ['./header.component.sass']
@@ -30,5 +31,13 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('currentSessionID');
+  }
+
+  getParameter(type: string): Parameter {
+    return parametersHelper.getParameter(this.profile, type)
+  }
+
+  getClass(type: string): string {
+    return parametersHelper.getClass(this.getParameter(type))
   }
 }

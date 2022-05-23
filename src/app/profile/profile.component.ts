@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Profile} from "../../models/profile.model";
+import {Parameter, Profile} from "../../models/profile.model";
 import {ActivatedRoute} from "@angular/router";
 import {ProfileService} from "../../services/profile.service";
+import parametersHelper from "../../helpers/parametersHelper";
 
 @Component({
   selector: 'app-profile', templateUrl: './profile.component.html'
@@ -30,5 +31,13 @@ export class ProfileComponent implements OnInit {
     this.profileService.setSelectedProfile(id);
   }
 
+  getClass(type: string): string {
+    return parametersHelper.getClass(this.getParameter(type))
+  }
+
+  getParameter(type: string): Parameter {
+    return parametersHelper.getParameter(this.profile, type)
+  }
+  
 }
 

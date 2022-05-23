@@ -8,7 +8,7 @@
   },
   {
     "type": "PARKINSON_BOX_SPACING",
-    "value": 32,
+    "value": 16,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841026
@@ -22,7 +22,7 @@
   },
   {
     "type": "VISION_SCALE",
-    "value": 24,
+    "value": 16,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841052
