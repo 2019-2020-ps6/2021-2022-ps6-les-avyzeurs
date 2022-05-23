@@ -50,12 +50,12 @@ export class AppComponent {
   isSudden() {
     //on cherche a savoir si un mouvement est brusque seulement après avoir enregistré quelques mouvements
     if(this.coordinates.length>100) {
-      //on définit un mouvement comme brusque si il est 4 fois plus rapide que les mouvements habituels
+      //on définit un mouvement comme brusque si il est 2 fois plus rapide que les mouvements habituels
       if(this.getAverageOnLastCoordinates()>2*this.getAverage()) {
         this.suddenMovement = true;
         setTimeout(() => {
           this.setSuddenToFalse();
-        }, 2000);
+        }, 5000);
       }
     }
   }
