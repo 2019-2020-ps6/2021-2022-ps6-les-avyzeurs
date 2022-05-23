@@ -2,7 +2,7 @@
   <div *ngIf="quizzesHistory.length > 0; then showHistory; else noHistory"></div>
   <ng-template #showHistory>
     <div class="col-12 center">
-      <h2>Derniers quiz effectués</h2>
+      <h2 class="{{getClass('VISION_SCALE')}}">Derniers quiz effectués</h2>
     </div>
     <div class="col-12">
       <div *ngFor="let profileResult of quizzesHistory | slice:0:5; let i=index"  class="flex">
@@ -12,7 +12,7 @@
   </ng-template>
   <ng-template #noHistory>
     <div class="col-12">
-      <div class="alert info">
+      <div class="alert info {{getClass('VISION_SCALE')}}">
         Il n'y a pas d'historique de quiz, vous n'avez pas encore fait de quiz.
       </div>
     </div>

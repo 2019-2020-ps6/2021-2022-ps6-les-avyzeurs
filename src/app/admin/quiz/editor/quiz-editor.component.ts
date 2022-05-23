@@ -60,7 +60,7 @@ export class QuizEditorComponent implements OnInit {
       this.quizService.createQuiz(JSON.stringify(this.quiz))
       this.router.navigate(['/admin/quiz']);
     } else {
-      alert("oui")
+      alert("Attention, veuillez remplir les champs obligatoires (il faut une question avec une réponse minimum pour créer un quiz)")
     }
   }
 
@@ -81,7 +81,6 @@ export class Quiz {
   }
 
   isValid(): boolean {
-    console.log(this.questions.length)
     if (this.name.length == 0 || this.questions.length == 0) return false
     for (let question of this.questions) if (!question.isValid()) return false
     return true
@@ -100,6 +99,7 @@ export class Question {
     for (let answer of this.answers) if (!answer.isValid()) return false
     return true
   }
+
 }
 
 export class Answer {

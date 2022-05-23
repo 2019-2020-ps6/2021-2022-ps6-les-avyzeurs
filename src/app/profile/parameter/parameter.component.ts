@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Parameter} from "../../../models/profile.model";
+import {Parameter, Profile} from "../../../models/profile.model";
 import {ParameterService} from "../../../services/parameter.service";
+import parametersHelper from "../../../helpers/parametersHelper";
 
 @Component({
   selector: 'app-profile-parameter',
@@ -10,9 +11,18 @@ import {ParameterService} from "../../../services/parameter.service";
 export class ParameterComponent implements OnInit {
 
   @Input() parameter: Parameter;
+  @Input() profile: Profile;
 
   constructor(public parameterService: ParameterService) {
 
+  }
+
+  getParameter(type: string): Parameter {
+    return parametersHelper.getParameter(this.profile, type)
+  }
+
+  getClass(type: string): string {
+    return parametersHelper.getClass(this.getParameter(type))
   }
 
   ngOnInit(): void {
