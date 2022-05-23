@@ -4,24 +4,36 @@
     "firstname": "René",
     "image": "https://resize.programme-television.ladmedia.fr/r/670,670/img/var/premiere/storage/images/tele-7-jours/news-tv/rene-malleville-l-ex-chroniqueur-de-tpmp-dans-un-etat-de-sante-inquietant-4676050/99557652-1-fre-FR/Rene-Malleville-l-ex-chroniqueur-de-TPMP-dans-un-etat-de-sante-inquietant.png",
     "lastConnection": 1649004020535,
-    "id": 1649004020542
-  },
-  {
-    "name": "Opellieiv",
-    "firstname": "Huguette",
-    "lastConnection": 1649004020535,
-    "id": 1649004020999
-  },
-  {
-    "name": "Test",
-    "firstname": "Des Params",
-    "lastConnection": 1649151840992,
-    "id": 1649151840999
-  },
-  {
-    "name": "Je",
-    "firstname": "test",
-    "lastConnection": 1650353347341,
-    "id": 1650353347354
+    "id": 1649004020542,
+    "parameters": [
+      {
+        "type": "PARKINSON_MOVEMENT_DETECTOR",
+        "value": 1,
+        "isEnabled": true,
+        "profileId": 1649004020542,
+        "id": 1649151841014
+      },
+      {
+        "type": "PARKINSON_BOX_SPACING",
+        "value": 32,
+        "isEnabled": true,
+        "profileId": 1649004020542,
+        "id": 1649151841026
+      },
+      {
+        "type": "PARKINSON_BOX_SIZING",
+        "value": 8,
+        "isEnabled": true,
+        "profileId": 1649004020542,
+        "id": 1649151841038
+      },
+      {
+        "type": "VISION_SCALE",
+        "value": 24,
+        "isEnabled": true,
+        "profileId": 1649004020542,
+        "id": 1649151841052
+      }
+    ]
   }
 ]

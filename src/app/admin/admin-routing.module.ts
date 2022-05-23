@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'admin/quiz', pathMatch: 'full', component: QuizComponent},
   {path: 'admin/quiz/:id', pathMatch: 'full', component: QuizEditorComponent},
   {path: 'admin/quiz/new', pathMatch: 'full', component: QuizEditorComponent},
-  {path: 'admin/profile/profile/:id', pathMatch: 'full', component: EditProfileComponent}
+  {path: 'admin/profile/:id', pathMatch: 'full', component: EditProfileComponent},
+  {path: 'admin/profile/new', pathMatch: 'full', component: EditProfileComponent}
 
 ];
 
