@@ -11,12 +11,11 @@ import {QuizModule} from "./quiz/quiz.module";
 import {ProfileModule} from "./profile/profile.module";
 import {AdminModule} from "./admin/admin.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NgxImageZoomModule} from "ngx-image-zoom";
 
 
 @NgModule({
   declarations: [AppComponent, IndexComponent],
-    imports: [BrowserModule, appRoutingModule, ComponentsModule, HttpClientModule, QuizModule, ProfileModule, AdminModule, FormsModule, ReactiveFormsModule, NgxImageZoomModule],
+    imports: [BrowserModule, appRoutingModule, ComponentsModule, HttpClientModule, QuizModule, ProfileModule, AdminModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
