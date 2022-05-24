@@ -20,8 +20,9 @@ export class LightProfileComponent implements OnInit {
   }
 
   delete(e) {
+    e.stopPropagation();e.preventDefault();
     this.profileService.deleteProfile(this.profile.id);
-    e.stopPropagation();
+
   }
 
   getFullName(){
