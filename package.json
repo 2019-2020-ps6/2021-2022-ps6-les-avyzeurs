@@ -27,6 +27,7 @@
     "heatmap.js": "^2.0.5",
     "joi": "^14.3.1",
     "morgan": "1.9.1",
+    "ngx-image-zoom": "^1.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
