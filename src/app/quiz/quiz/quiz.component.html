@@ -14,16 +14,8 @@
         </app-quiz-question>
       </div>
       <hr>
-<!--
-<div *ngIf="currentQuestion + 1 < quiz.questions.length;then nextQuestion else endQuiz"></div>
-<ng-template #nextQuestion>
-  <a (click)="goToNextQuestion()" class="btn-polyquizz sp">Oui1</a>
-</ng-template>
-<ng-template #endQuiz>
-  <a (click)="saveQuizResult()" routerLink="/quiz-result/1" class="btn-polyquizz sp">Oui2</a>
-</ng-template>
--->
-<h1>Vous pouvez valider votre réponse avec Entrée</h1>
+
+<h1>Après selection, vous pouvez passer à la question suivante avec un clic <strong>Droit</strong> également</h1>
 <!-- #####################################################################################" -->
       <div [ngClass]="suddenPopupNext ? 'opened' : 'closed'" class="modal" id="suddenPopupNext">
         <div class="popup small">
@@ -33,7 +25,7 @@
           <h3>Êtes vous sûr de votre réponse ?</h3>
 
           <br>
-          <h4>Appuyez sur Entrée pour valider ou sur A pour annuler</h4>
+          <h4>Click droit pour Confirmer <strong>ou</strong> Clic gauche pour annuler</h4>
 
           <div class="flex">
             <div class="col-6">
@@ -54,7 +46,7 @@
           <h3>Êtes vous sûr de votre réponse ?</h3>
 
           <br>
-          <h4>Appuyez sur Entrée pour valider ou sur A pour annuler</h4>
+          <h4>Click droit pour Confirmer <strong>ou</strong> Clic gauche pour annuler</h4>
 
           <div class="flex">
             <div class="col-6">
@@ -74,7 +66,7 @@
       <ng-template #endQuiz>
         <div *ngIf="getParam();then popup else noPopup"></div>
         <ng-template #popup>
-          <a (click)="openModal('suddenPopupEnd')" class="btn-polyquizz" href="javascript:void(0)">Afficher les résultats du quiz</a>
+          <a (click)="openModal('suddenPopupEnd')" class="btn-polyquizz" routerLink="/quiz-result/1">Afficher les résultats du quiz</a>
         </ng-template>
         <ng-template #noPopup>
           <a (click)="saveQuizResult()" class="btn-polyquizz" routerLink="/quiz-result/1" >Afficher les résultats du quiz</a>
@@ -87,7 +79,6 @@
         <a class="btn-polyquizz small sp" href="javascript:void(0)">Vérifier mes paramètres</a>
       </div>
     </div>
-
 
     <div [ngClass]="quitQuizPopup ? 'opened' : 'closed'" class="modal" id="quitQuizPopup">
       <div class="popup small">
