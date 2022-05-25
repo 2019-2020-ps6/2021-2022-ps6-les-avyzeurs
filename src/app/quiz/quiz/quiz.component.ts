@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, HostListener} from '@angular/core';
+import {Component, Inject, OnInit, HostListener, ViewChild, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
@@ -7,10 +7,12 @@ import {AppComponent} from "../../app.component";
 import {ParameterService} from "../../../services/parameter.service";
 
 
+
 @Component({
   selector: 'app-quiz', templateUrl: './quiz.component.html', styleUrls: ['./quiz.component.sass']
 })
 export class QuizComponent implements OnInit {
+
   public quiz: Quiz;
   quitQuizPopup: boolean = false;
   userParamPopup: boolean = false;
@@ -20,7 +22,12 @@ export class QuizComponent implements OnInit {
   errorDueToMovement: number = 0;
   public answers: number[] = [];
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService, @Inject(AppComponent) private appComponent: AppComponent, @Inject(ParameterService) private parameterService: ParameterService, private router: Router ) {
+  constructor(private route: ActivatedRoute,
+              private quizService: QuizService,
+              @Inject(AppComponent) private appComponent: AppComponent,
+              @Inject(ParameterService) private parameterService: ParameterService,
+              private router: Router,
+              ) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
       this.shuffleArray(this.quiz.questions)
@@ -32,11 +39,18 @@ export class QuizComponent implements OnInit {
     this.quizService.setSelectedQuiz(id);
   }
 
-  @HostListener('document:keypress', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if(event.key=="Enter"){
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event) {
+    event.preventDefault();
+  }
+
+
+  @HostListener('document:mouseup', ['$event'])
+  wheelclick(event: MouseEvent) {
+    if(event.button == 2){
       if(this.suddenPopupNext){
         this.goToNextQuestion();
+
       }
       if(this.suddenPopupEnd){
         this.saveQuizResult();
@@ -51,24 +65,35 @@ export class QuizComponent implements OnInit {
           this.goToNextQuestion();
         }
       }
+
     }
-    if(event.key=="a" || event.key=="A"){
+    if(event.which == 1){
       if(this.suddenPopupNext){
         this.closeModal("suddenPopupNext");
+        event.stopPropagation()
       }
       if(this.suddenPopupEnd){
         this.closeModal("suddenPopupEnd");
+        event.stopPropagation()
       }
+
+
     }
+
+
+
   }
+
+
 
   goToNextQuestion(): void {
     if(this.suddenPopupNext) {this.suddenPopupNext=false;}
     if(this.currentQuestion + 1 >= this.quiz.questions.length) {this.saveQuizResult()}
-    else {if (this.answers[this.currentQuestion] != undefined)
-      this.currentQuestion = this.currentQuestion + 1;
-    console.log(this.answers);}
-    console.log(this.errorDueToMovement);
+    else {
+      if (this.answers[this.currentQuestion] != undefined)
+        this.currentQuestion = this.currentQuestion + 1;
+    }
+
   }
 
   shuffleArray = array => {
@@ -133,7 +158,6 @@ export class QuizComponent implements OnInit {
   }
 
   saveQuizResult(): void {
-    console.log(this.answers);
     if (this.answers[this.currentQuestion] != undefined)
       this.quizService.saveResult({answers: this.answers, id: 0, profileId: Number.parseInt(localStorage.getItem("currentSessionID")), quizId: this.quiz.id, nbOfErrorDueToMovement: this.errorDueToMovement});
   }
