@@ -8,21 +8,21 @@
   },
   {
     "type": "PARKINSON_BOX_SPACING",
-    "value": 8,
+    "value": 64,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841026
   },
   {
     "type": "PARKINSON_BOX_SIZING",
-    "value": 8,
+    "value": 32,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841038
   },
   {
     "type": "VISION_SCALE",
-    "value": 16,
+    "value": 24,
     "isEnabled": true,
     "profileId": 1649004020542,
     "id": 1649151841052
@@ -306,5 +306,173 @@
     "isEnabled": true,
     "profileId": 1650908032791,
     "id": 1650908032842
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1653427827281,
+    "id": 1653427827334
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 8,
+    "isEnabled": true,
+    "profileId": 1653427827281,
+    "id": 1653427827364
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 8,
+    "isEnabled": true,
+    "profileId": 1653427827281,
+    "id": 1653427827392
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 32,
+    "isEnabled": true,
+    "profileId": 1653427827281,
+    "id": 1653427827422
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1653428937424,
+    "id": 1653428937479
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653428937424,
+    "id": 1653428937524
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653428937424,
+    "id": 1653428937566
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 48,
+    "isEnabled": true,
+    "profileId": 1653428937424,
+    "id": 1653428937605
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1653430045971,
+    "id": 1653430046030
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653430045971,
+    "id": 1653430046077
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653430045971,
+    "id": 1653430046120
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653430045971,
+    "id": 1653430046164
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1653431231578,
+    "id": 1653431231645
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653431231578,
+    "id": 1653431231700
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653431231578,
+    "id": 1653431231735
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 48,
+    "isEnabled": true,
+    "profileId": 1653431231578,
+    "id": 1653431231775
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1653431769950,
+    "id": 1653431770011
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653431769950,
+    "id": 1653431770060
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653431769950,
+    "id": 1653431770105
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 48,
+    "isEnabled": true,
+    "profileId": 1653431769950,
+    "id": 1653431770148
+  },
+  {
+    "type": "PARKINSON_MOVEMENT_DETECTOR",
+    "value": 0,
+    "isEnabled": true,
+    "profileId": 1653432148739,
+    "id": 1653432148799
+  },
+  {
+    "type": "PARKINSON_BOX_SPACING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653432148739,
+    "id": 1653432148848
+  },
+  {
+    "type": "PARKINSON_BOX_SIZING",
+    "value": 16,
+    "isEnabled": true,
+    "profileId": 1653432148739,
+    "id": 1653432148891
+  },
+  {
+    "type": "VISION_SCALE",
+    "value": 48,
+    "isEnabled": true,
+    "profileId": 1653432148739,
+    "id": 1653432148932
   }
 ]

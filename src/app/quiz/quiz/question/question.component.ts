@@ -5,6 +5,7 @@ import {ProfileService} from "../../../../services/profile.service";
 import {Parameter, Profile} from "../../../../models/profile.model";
 import parametersHelper from "../../../../helpers/parametersHelper";
 
+
 @Component({
   selector: 'app-quiz-question', templateUrl: './question.component.html', styleUrls: ['./question.component.sass']
 })
